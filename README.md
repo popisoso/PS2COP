@@ -46,6 +46,7 @@ js/events.js            calendar events and organizations — edit this to add e
 assets/                 images and icons exported from Figma
 scripts/build.py        assembles index.html and artifact.html from src/ and pages/
 scripts/optimize_images.py  compresses exported images
+scripts/check_assets.py     reports missing or unused images
 ```
 
 ## Editing
@@ -58,8 +59,13 @@ and the classes in `css/site.css`.
 
 ## Notes
 
-- Content, names and events are the sample content from the designs. The calendar opens on January 2026,
-  the month shown in the designs (`KV_CALENDAR_START` in `js/events.js`).
+- Content, names and events are the sample content from the designs. The calendar opens on the current month
+  (set `KV_CALENDAR_START` in `js/events.js` to e.g. `"2026-01"` to open on the month shown in the designs).
+  Weekly activities repeat automatically; the designs give no year, so "Communal Meal" and "Turns Pink" are placed
+  on the next matching Mondays (30 November and 14 December 2026).
+- Events-page filter tags (location, category, demographic) are sample values; adjust the `data-*` attributes
+  on the event cards in `pages/events.html`.
+- Live artifact preview: https://claude.ai/artifact/H3i2Hey3RRoHb4DzEnpf8u (private to the owner until shared).
 - Forms validate and show a confirmation, but nothing is sent anywhere yet; they need a backend or a form
   service to deliver messages.
 - The language switch (globe) only offers English for now.

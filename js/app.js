@@ -602,7 +602,8 @@
         list = all.filter(function (e) { return e.date === st.sel; });
         $("[data-side-title]", el).textContent = "Events on " + longDate(st.sel);
       } else {
-        var from = iso(new Date(st.y, st.m, 1));
+        var from = iso(new Date(st.y, st.m, 1)), todayIso = iso(new Date());
+        if (todayIso > from && todayIso.slice(0, 7) === from.slice(0, 7)) from = todayIso;
         list = all.filter(function (e) { return e.date >= from; });
         $("[data-side-title]", el).textContent = "Upcoming Events";
       }
