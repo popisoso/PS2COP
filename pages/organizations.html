@@ -1,0 +1,269 @@
+<!-- title: All Organizations -->
+<style>
+.page-organizations .org-hero { position: relative; height: clamp(220px, 27vw, 388px); display: grid; place-items: center; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); }
+.page-organizations .org-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.page-organizations .org-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); }
+.page-organizations .org-hero h1 { position: relative; z-index: 1; color: #fffbf7; font-size: clamp(32px, 3.4vw, 43px); font-weight: 700; text-align: center; padding-inline: 16px; }
+.page-organizations .breadcrumb { color: #000; font-size: 15px; padding-block: 37px 37px; gap: 10px; }
+.page-organizations .breadcrumb a { color: #000; }
+.page-organizations .breadcrumb span[aria-current] { font-weight: 700; }
+.page-organizations .org-layout { display: grid; grid-template-columns: 1fr; gap: 40px; padding-bottom: clamp(48px, 6vw, 92px); align-items: start; }
+@media (min-width: 900px) { .page-organizations .org-layout { grid-template-columns: 240px minmax(0, 1fr); gap: 50px; } }
+.page-organizations .org-col-title { font-size: 28px; font-weight: 700; line-height: 1.2; }
+.page-organizations .org-filter { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 900px) { .page-organizations .org-filter { gap: 40px; } }
+.page-organizations .org-filter__all { align-self: flex-start; }
+.page-organizations .org-filter__panel { background: #eddae2; border-radius: 5px; padding: 40px 20px; }
+.page-organizations .org-filter__panel > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 22px; font-weight: 700; }
+.page-organizations .org-filter__panel > summary::-webkit-details-marker { display: none; }
+.page-organizations .org-filter__panel > summary img { width: 12px; height: 24px; transform: rotate(-90deg); transition: transform .2s; flex: none; }
+.page-organizations .org-filter__panel:not([open]) > summary img { transform: rotate(90deg); }
+.page-organizations .org-filter__list { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 15px; }
+.page-organizations .org-filter .chip { background: none; border: 0; padding: 0; border-radius: 0; color: #000; font-size: 18px; font-weight: 400; line-height: 1; gap: 15px; justify-content: flex-start; text-align: left; min-height: 22px; }
+.page-organizations .org-filter .chip::before { content: ""; flex: none; width: 22px; height: 22px; border: 1px solid var(--pink); border-radius: 5px; background: rgba(221, 92, 144, 0.1); transition: background .15s; }
+.page-organizations .org-filter .chip:hover { background: none; color: #000; }
+.page-organizations .org-filter .chip:hover::before { background: rgba(221, 92, 144, 0.3); }
+.page-organizations .org-filter .chip.is-active, .page-organizations .org-filter .chip[aria-pressed="true"] { background: none; color: #000; font-weight: 600; }
+.page-organizations .org-filter .chip.is-active::before, .page-organizations .org-filter .chip[aria-pressed="true"]::before { background: var(--pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11.5l3.5 3.5L16 8' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
+.page-organizations .org-filter .org-filter__all.chip { padding: 10px 20px; border-radius: var(--radius-l); background: var(--lavender); color: var(--chip-text); font-size: 16px; font-weight: 500; }
+.page-organizations .org-filter .org-filter__all.chip::before { display: none; }
+.page-organizations .org-filter .org-filter__all.chip.is-active, .page-organizations .org-filter .org-filter__all.chip[aria-pressed="true"] { background: var(--pink); color: #fff; }
+.page-organizations .org-filter__more { margin-top: 15px; }
+.page-organizations .org-filter__more > summary { list-style: none; cursor: pointer; text-align: center; text-decoration: underline; font-size: 16px; padding-top: 5px; }
+.page-organizations .org-filter__more > summary::-webkit-details-marker { display: none; }
+.page-organizations .org-filter__more[open] > summary { display: none; }
+.page-organizations .org-filter__more .org-filter__list { margin-top: 0; }
+.page-organizations .org-list-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 40px; }
+.page-organizations .org-list-head .search { width: 260px; }
+.page-organizations .org-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 27px 25px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.page-organizations .org-grid > li[hidden] { display: none; }
+.page-organizations .org-card { display: flex; flex-direction: column; height: 100%; border-radius: 10px; filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.25)); color: #000; }
+.page-organizations .org-card.card--link:hover { box-shadow: none; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.3)); }
+.page-organizations .org-card__img { width: 100%; height: 174px; object-fit: cover; border-radius: 10px 10px 0 0; background: #fff; }
+.page-organizations .org-card__img--blank { background: #eb9cb9; }
+.page-organizations .org-card__body { flex: 1; display: flex; flex-direction: column; gap: 15px; min-height: 200px; padding: 20px; background: #fffbf7; border-radius: 0 0 10px 10px; }
+.page-organizations .org-card__tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.page-organizations .org-card__tags li { display: inline-flex; align-items: center; height: 28px; padding: 5px; border-radius: 20px; background: #eb9cb9; font-size: 16px; line-height: 1; }
+.page-organizations .org-card__name { font-size: 22px; font-weight: 700; line-height: 1.2; }
+.page-organizations .org-card.card--link:hover .org-card__name { color: var(--pink-dark); }
+.page-organizations .org-card__desc { font-size: 16px; line-height: 1.15; }
+.page-organizations .org-empty { padding: 40px 0; font-size: 18px; color: var(--muted); }
+</style>
+
+<header class="org-hero">
+  <img src="assets/img/organizations/hero.png" alt="" width="945" height="532">
+  <h1>All Organizations</h1>
+</header>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="#organizations">Organizations</a> <span aria-hidden="true">//</span> <span aria-current="page">All Organizations</span>
+  </nav>
+
+  <div class="org-layout">
+    <aside class="org-filter" aria-labelledby="org-filter-title" data-filter-group="orgs">
+      <h2 class="org-col-title" id="org-filter-title">Filter</h2>
+      <button type="button" class="chip org-filter__all is-active" data-filter="all">All Organizations</button>
+
+      <details class="org-filter__panel" open>
+        <summary>Locations <img src="assets/img/organizations/arrow-filled.svg" alt="" width="12" height="24"></summary>
+        <ul class="org-filter__list">
+          <li><button type="button" class="chip" data-filter="loc-binckhorst">Binckhorst</button></li>
+          <li><button type="button" class="chip" data-filter="loc-laak">Laak</button></li>
+          <li><button type="button" class="chip" data-filter="loc-moerwijk">Moerwijk</button></li>
+          <li><button type="button" class="chip" data-filter="loc-scheveningen">Scheveningen</button></li>
+          <li><button type="button" class="chip" data-filter="loc-segbroek">Segbroek</button></li>
+        </ul>
+        <details class="org-filter__more">
+          <summary>See more</summary>
+          <ul class="org-filter__list">
+            <li><button type="button" class="chip" data-filter="loc-centrum">Centrum</button></li>
+            <li><button type="button" class="chip" data-filter="loc-escamp">Escamp</button></li>
+            <li><button type="button" class="chip" data-filter="loc-rijswijk">Rijswijk</button></li>
+          </ul>
+        </details>
+      </details>
+
+      <details class="org-filter__panel" open>
+        <summary>Categories <img src="assets/img/organizations/arrow-filled.svg" alt="" width="12" height="24"></summary>
+        <ul class="org-filter__list">
+          <li><button type="button" class="chip" data-filter="cat-social">Social (1)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-motherhood">Motherhood (2)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-courses">Courses (1)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-culture">Culture (3)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-activities">Activities (2)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-coaching">Coaching (1)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-women">Women (2)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-health">Health (1)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-children">Children (1)</button></li>
+          <li><button type="button" class="chip" data-filter="cat-growth">Growth (1)</button></li>
+        </ul>
+        <details class="org-filter__more">
+          <summary>See more</summary>
+          <ul class="org-filter__list">
+            <li><button type="button" class="chip" data-filter="cat-advice">Advice (1)</button></li>
+          </ul>
+        </details>
+      </details>
+
+      <details class="org-filter__panel" open>
+        <summary>Demographic <img src="assets/img/organizations/arrow-filled.svg" alt="" width="12" height="24"></summary>
+        <ul class="org-filter__list">
+          <li><button type="button" class="chip" data-filter="demo-children">Children</button></li>
+          <li><button type="button" class="chip" data-filter="demo-youth">Youth</button></li>
+          <li><button type="button" class="chip" data-filter="demo-adults">Adults</button></li>
+          <li><button type="button" class="chip" data-filter="demo-seniors">Seniors</button></li>
+        </ul>
+      </details>
+    </aside>
+
+    <section class="min0" aria-labelledby="org-list-title">
+      <div class="org-list-head">
+        <h2 class="org-col-title" id="org-list-title">Partner Organizations</h2>
+        <div class="search">
+          <input type="search" placeholder="Search" aria-label="Search organizations" data-search-target="orgs">
+          <button type="button" aria-label="Search"><img src="assets/icons/search.svg" alt="" width="18" height="18"></button>
+        </div>
+      </div>
+      <ul class="org-grid">
+      <li data-filter-item="orgs" data-tags="cat-courses cat-social loc-laak demo-adults">
+        <a class="org-card card--link" href="#org-vbl">
+          <img class="org-card__img" src="assets/img/organizations/vrouwenbuurtlab.png" alt="VrouwenBuurtLab Laak logo" width="225" height="225" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Curssusen</li><li>Social</li></ul>
+            <h3 class="org-card__name">VrouwenBuurtLab</h3>
+            <p class="org-card__desc">De plek om elkaar te ontmoeten, te ontdekken en jezelf te ontwikkelen</p>
+          </div>
+        </a>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-motherhood cat-courses loc-segbroek demo-youth demo-adults">
+        <a class="org-card card--link" href="#org-reva">
+          <img class="org-card__img" src="assets/img/organizations/reva-moeders.png" alt="Group photo of the women of ReVa Moeders" width="280" height="202" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Motherhood</li><li>Courses</li></ul>
+            <h3 class="org-card__name">ReVa Moeders</h3>
+            <p class="org-card__desc">Het gaat deze groep om de belangenbehartiging en emancipatie van een grote...</p>
+          </div>
+        </a>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-culture cat-activities">
+        <article class="org-card">
+          <div class="org-card__img org-card__img--blank" aria-hidden="true"></div>
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Culture</li><li>Activities</li></ul>
+            <h3 class="org-card__name">Stichting Jemeniyaat</h3>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-women cat-health loc-centrum demo-adults">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/cooperatie-eva.png" alt="Coöperatie Eva logo" width="549" height="348" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Women</li><li>Health</li></ul>
+            <h3 class="org-card__name">Coöperatie Eva</h3>
+            <p class="org-card__desc">Coöperatie Eva ondersteunt vrouwen op weg naar economische zelfstandigheid.</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-coaching loc-escamp">
+        <article class="org-card">
+          <div class="org-card__img org-card__img--blank" aria-hidden="true"></div>
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Coaching</li></ul>
+            <h3 class="org-card__name">Amal Coaching</h3>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-women demo-adults">
+        <article class="org-card">
+          <div class="org-card__img org-card__img--blank" aria-hidden="true"></div>
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Women</li></ul>
+            <h3 class="org-card__name">Wijkz / Happy women</h3>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-children cat-activities loc-centrum demo-children">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/talentenklup.png" alt="Stichting de Talentenklup logo" width="578" height="345" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Children</li><li>Activities</li></ul>
+            <h3 class="org-card__name">Talentenklup</h3>
+            <p class="org-card__desc">Stichting de Talentenklup biedt peuteropvang aan voor alle kinderen in de leeftijd van 2,5 tot 4 jaar.</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-social cat-activities loc-rijswijk">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/wijkz.png" alt="Wijkz logo" width="369" height="182" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Social</li><li>Activities</li></ul>
+            <h3 class="org-card__name">Wijkz</h3>
+            <p class="org-card__desc">We zetten ons met veel enthousiasme en deskundigheid in om je te informeren, advies te geven en je alvast een stukje ...</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-women cat-culture loc-segbroek demo-adults">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/polka.png" alt="POLKA logo" width="792" height="336" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Women</li><li>Culture</li></ul>
+            <h3 class="org-card__name">POLKA</h3>
+            <p class="org-card__desc">We organiseren themabijeenkomsten, workshops, trainingen, rondleidingen door de stad, maar ook sport...</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-activities cat-health">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/zwemvereniging-mar.png" alt="Zwemvereniging MAR logo" width="824" height="494" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Activities</li><li>Health</li></ul>
+            <h3 class="org-card__name">Zwemvereniging MAR</h3>
+            <p class="org-card__desc">Bij Zwemvereniging MAR kunt u zwemlessen volgen of vrij zwemmen in zwembad De Houtzagerij en De Zuiderpark.</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-culture cat-activities demo-children">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/stichting-joury.png" alt="Stichting Joury logo" width="531" height="326" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Culture</li><li>Activities</li></ul>
+            <h3 class="org-card__name">Stichting Joury</h3>
+            <p class="org-card__desc">Stichting Joury wil een veilige en vertrouwde omgeving creëren voor kinderen, ...</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-culture cat-advice loc-laak">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/bulgaarse-club-laak.png" alt="Bulgaarse Club Laak logo" width="280" height="202" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Culture</li><li>Advice</li></ul>
+            <h3 class="org-card__name">Bulgaarse Club Laak</h3>
+            <p class="org-card__desc">Als Bulgaarse Club Laak willen wij een plek zijn voor de Bulgaarse gemeenschap in...</p>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-motherhood cat-children loc-moerwijk demo-children demo-adults">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/moerwijk-moeders.png" alt="Moerwijk Moeders logo" width="280" height="202" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Motherhood</li><li>Children</li></ul>
+            <h3 class="org-card__name">Moerwijk Moeders</h3>
+          </div>
+        </article>
+      </li>
+      <li data-filter-item="orgs" data-tags="cat-women cat-growth loc-laak demo-adults">
+        <article class="org-card">
+          <img class="org-card__img" src="assets/img/organizations/laak-ladies-united.png" alt="Women of Laak Ladies United posing on a sports field" width="280" height="202" loading="lazy">
+          <div class="org-card__body">
+            <ul class="org-card__tags" aria-label="Categories"><li>Women</li><li>Growth</li></ul>
+            <h3 class="org-card__name">Laak Ladies United</h3>
+            <p class="org-card__desc">Ladies United staat voor het in beweging brengen van vrouwen door...</p>
+          </div>
+        </article>
+      </li>
+      </ul>
+      <p class="org-empty" data-empty="orgs" hidden>No organizations found.</p>
+    </section>
+  </div>
+</div>
