@@ -65,7 +65,7 @@
   .page-guide-location .guide-dos li img { width: 25px; height: 25px; }
 
   .page-guide-location .guide-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
-  .page-guide-location .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; min-height: 52px; padding: 0 25px; border-radius: 35px; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .15s, filter .15s; }
+  .page-guide-location .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; min-height: 52px; padding: 0 16px; border-radius: 35px; white-space: nowrap; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .15s, filter .15s; }
   .page-guide-location .guide-btn:hover { transform: translateY(-2px); filter: brightness(.92); }
   .page-guide-location .guide-btn--next { gap: 30px; }
   .page-guide-location .guide-btn--back { gap: 30px; }
@@ -75,7 +75,7 @@
   @media (max-width: 719px) { .page-guide-location .guide-btn { width: 100%; } .page-guide-location .guide-bar__list { margin-right: 0; } }
   .page-guide-location .guide-gap { margin-top: 20px; }
   .page-guide-location .guide-dos-section { max-width: 597px; }
-  .page-guide-location .guide-toc__art--wide { max-width: 100%; align-self: flex-end; }
+  .page-guide-location .guide-toc__art--wide { width: 100%; max-width: 100%; align-self: flex-end; }
   @media (min-width: 1240px) { .page-guide-location .guide-toc__art--wide { width: var(--art-w); max-width: none; } }
   .page-guide-location .guide-toc__art--location { --art-w: 359px; }
 </style>

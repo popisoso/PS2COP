@@ -65,7 +65,7 @@
   .page-guide-structure .guide-dos li img { width: 25px; height: 25px; }
 
   .page-guide-structure .guide-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
-  .page-guide-structure .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; min-height: 52px; padding: 0 25px; border-radius: 35px; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .15s, filter .15s; }
+  .page-guide-structure .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; min-height: 52px; padding: 0 16px; border-radius: 35px; white-space: nowrap; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; transition: transform .15s, filter .15s; }
   .page-guide-structure .guide-btn:hover { transform: translateY(-2px); filter: brightness(.92); }
   .page-guide-structure .guide-btn--next { gap: 30px; }
   .page-guide-structure .guide-btn--back { gap: 30px; }
@@ -75,9 +75,11 @@
   @media (max-width: 719px) { .page-guide-structure .guide-btn { width: 100%; } .page-guide-structure .guide-bar__list { margin-right: 0; } }
   .page-guide-structure .guide-gap { margin-top: 20px; }
   .page-guide-structure .guide-dos-section { max-width: 597px; }
-  .page-guide-structure .guide-toc__art--wide { max-width: 100%; align-self: flex-end; }
+  .page-guide-structure .guide-toc__art--wide { width: 100%; max-width: 100%; align-self: flex-end; }
   @media (min-width: 1240px) { .page-guide-structure .guide-toc__art--wide { width: var(--art-w); max-width: none; } }
-  .page-guide-structure .guide-toc__art--structure { --art-w: 325px; aspect-ratio: 325 / 253; object-fit: cover; object-position: 92% 0; }
+  /* Figma crop: image is 140% of the frame width, shifted left 36.92% */
+  .page-guide-structure .guide-toc__art--structure { --art-w: 325px; aspect-ratio: 325 / 253; overflow: hidden; }
+  .page-guide-structure .guide-toc__art--structure img { width: 140%; max-width: none; height: auto; margin-left: -36.92%; }
 </style>
 
 <header class="guide-hero">
@@ -111,7 +113,7 @@
         <li><a href="#guide-structure" data-scroll="structure-dos">Do’s And Don’t’s</a></li>
       </ul>
       <a class="guide-print" href="https://www.dehaagsehogeschool.nl/media/krachtvrouwen-de-wijk-een-community-practice-van-en-voor-haagse-vrouwenorganisaties" target="_blank" rel="noopener"><img src="assets/img/guide-structure/printer-teal.svg" alt="" width="24" height="24">Print this Chapter</a>
-      <img class="guide-toc__art guide-toc__art--wide guide-toc__art--structure" src="assets/img/guide-structure/side-illustration.png" alt="" width="1932" height="1114" loading="lazy">
+      <div class="guide-toc__art guide-toc__art--wide guide-toc__art--structure"><img src="assets/img/guide-structure/side-illustration.png" alt="" width="1932" height="1114" loading="lazy"></div>
     </div>
   </aside>
 

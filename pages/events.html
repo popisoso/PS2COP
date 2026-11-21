@@ -17,7 +17,8 @@
   .page-events .ev-filter > h2 { font-size: 28px; font-weight: 700; }
   .page-events .ev-filter__groups { display: grid; gap: 20px; grid-template-columns: 1fr; }
   @media (min-width: 560px) and (max-width: 899px) { .page-events .ev-filter__groups { grid-template-columns: 1fr 1fr; align-items: start; } }
-  .page-events .ev-fbox { background: #eddae2; border-radius: 5px; padding: 40px 25px; }
+  .page-events .ev-fbox { background: #eddae2; border-radius: 5px; padding: 24px 20px; }
+  @media (min-width: 900px) { .page-events .ev-fbox { padding: 40px 25px; } }
   .page-events .ev-fbox > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 22px; font-weight: 700; }
   .page-events .ev-fbox > summary::-webkit-details-marker { display: none; }
   .page-events .ev-fbox > summary img { width: 12px; height: 24px; transform: rotate(-90deg); transition: transform .2s; flex: none; }
@@ -31,7 +32,7 @@
   .page-events .ev-more:hover { color: var(--pink); }
 
   /* event cards */
-  .page-events .ev-grid { display: grid; gap: 38px clamp(20px, 3vw, 38px); grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); padding-top: 63px; }
+  .page-events .ev-grid { display: grid; gap: 38px clamp(20px, 3vw, 38px); grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); }
   @media (min-width: 900px) { .page-events .ev-grid { padding-top: 63px; } }
   .page-events .ev-card { position: relative; background: #fffbf7; border-radius: 10px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); min-height: 432px; display: flex; flex-direction: column; }
   .page-events .ev-card__media { position: relative; height: 180px; border-radius: 10px 10px 0 0; overflow: hidden; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03); }

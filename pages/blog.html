@@ -18,10 +18,10 @@
   .page-blog .bl-search button img { width: 35px; height: 35px; }
 
   .page-blog .bl-list { list-style: none; margin: 0; padding: 12px 0 0; }
-  .page-blog .bl-post { display: grid; grid-template-columns: 1fr; gap: 20px; padding-block: 62px 62px; border-bottom: 1px solid #000; }
-  .page-blog .bl-list > li + li .bl-post { padding-top: 86px; }
+  .page-blog .bl-post { display: grid; grid-template-columns: 1fr; gap: 20px; padding-block: 40px; border-bottom: 1px solid #000; }
+  @media (min-width: 760px) { .page-blog .bl-post { padding-block: 62px; } .page-blog .bl-list > li + li .bl-post { padding-top: 86px; } }
   @media (min-width: 760px) { .page-blog .bl-post { grid-template-columns: 320px minmax(0, 1fr); gap: 31px; } }
-  .page-blog .bl-post__img { display: block; aspect-ratio: 320 / 200; overflow: hidden; width: 100%; max-width: 320px; }
+  .page-blog .bl-post__img { display: block; aspect-ratio: 320 / 200; overflow: hidden; width: 100%; }
   .page-blog .bl-post__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s; }
   .page-blog .bl-post__img:hover img { transform: scale(1.03); }
   .page-blog .bl-post__body { display: flex; flex-direction: column; gap: 26px; min-width: 0; }

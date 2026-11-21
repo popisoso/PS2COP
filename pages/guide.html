@@ -26,7 +26,10 @@
   .page-guide .guide-topic__inner { display: flex; justify-content: flex-end; align-items: flex-end; gap: 20px; min-height: 461px; padding-top: 61px; }
   .page-guide .guide-topic__art { flex: 0 1 auto; min-width: 0; height: auto; }
   .page-guide .guide-topic__art--location { width: 485px; aspect-ratio: 485 / 400; }
-  .page-guide .guide-topic__art--structure { width: 511px; aspect-ratio: 511 / 385; object-fit: cover; object-position: 100% 0; }
+  .page-guide .guide-topic__art--structure { width: 511px; aspect-ratio: 511 / 385; }
+  /* Figma crop of the illustration: image is 135.82% of the frame width, shifted left 35.82% */
+  .page-guide .guide-crop { overflow: hidden; }
+  .page-guide .guide-crop img { width: 135.82%; max-width: none; height: auto; margin-left: -35.82%; }
   .page-guide .guide-topic__art--frictions { width: 439px; aspect-ratio: 439 / 380; object-fit: cover; }
   .page-guide .guide-topic__art--balance { width: 444px; aspect-ratio: 444 / 400; object-fit: cover; }
   .page-guide .guide-topic__art--generations { width: 521px; aspect-ratio: 521 / 388; object-fit: contain; object-position: 50% 100%; }
@@ -90,7 +93,7 @@
 
   <li class="guide-topic guide-topic--teal">
     <article class="container guide-topic__inner" aria-labelledby="guide-topic-2">
-      <img class="guide-topic__art guide-topic__art--structure" src="assets/img/guide/structure-illustration.png" alt="" width="1932" height="1114" loading="lazy">
+      <div class="guide-topic__art guide-topic__art--structure guide-crop"><img src="assets/img/guide/structure-illustration.png" alt="" width="1932" height="1114" loading="lazy"></div>
       <div class="guide-card">
         <div class="guide-card__text">
           <h2 class="guide-card__title" id="guide-topic-2"><a href="#guide-structure"><span class="guide-card__num">Guide 2:</span>Organizational Structure</a></h2>
