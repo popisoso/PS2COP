@@ -274,3 +274,13 @@ h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: #000; color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; }
 .skip-link:focus { top: calc(12px + env(safe-area-inset-top, 0px)); }
 mark { background: var(--green); padding: 0 2px; }
+
+/* carousel (data-carousel controls placed right after the list they drive) */
+.carousel-ctrl button { background: transparent; cursor: pointer; padding: 0; color: inherit; }
+.carousel-ctrl button:hover { background: rgba(255, 255, 255, .2); }
+.carousel-ctrl__dots { display: flex; gap: 21px; align-items: center; }
+.carousel-ctrl__dots button { width: 20px; height: 20px; border: 0; border-radius: 50%; display: block; }
+.carousel-ctrl__dots img { width: 20px; height: 20px; }
+.carousel-track.is-moving > * { animation: carousel-in .35s ease-out; }
+@keyframes carousel-in { from { opacity: .25; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@media (max-width: 959px) { .carousel-track > [data-pos]:not([data-pos="0"]) { display: none; } }

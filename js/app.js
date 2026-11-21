@@ -351,6 +351,42 @@
       });
     });
 
+    // carousel: controls ([data-carousel]) drive the list right before them
+    $$("[data-carousel]", root).forEach(function (ctrl) {
+      var track = ctrl.previousElementSibling;
+      if (!track) return;
+      var items = Array.prototype.slice.call(track.children);
+      var n = items.length;
+      if (n < 2) { ctrl.hidden = true; return; }
+      track.classList.add("carousel-track");
+      var dotsBox = $("[data-carousel-dots]", ctrl);
+      var live = document.createElement("p"); live.className = "sr-only"; live.setAttribute("aria-live", "polite"); ctrl.appendChild(live);
+      var i = 0;
+      dotsBox.innerHTML = items.map(function (_, k) {
+        return '<button type="button" aria-label="Show item ' + (k + 1) + ' of ' + n + '"><img src="" alt="" width="20" height="20"></button>';
+      }).join("");
+      var dots = $$("button", dotsBox);
+      function go(k, animate) {
+        i = (k + n) % n;
+        items.forEach(function (it, idx) { var pos = (idx - i + n) % n; it.style.order = pos; it.dataset.pos = pos; });
+        dots.forEach(function (d, idx) {
+          $("img", d).src = idx === i ? dotsBox.dataset.on : dotsBox.dataset.off;
+          if (idx === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
+        });
+        if (animate) {
+          track.classList.remove("is-moving"); void track.offsetWidth; track.classList.add("is-moving");
+          live.textContent = "Item " + (i + 1) + " of " + n;
+        }
+      }
+      $("[data-carousel-prev]", ctrl).addEventListener("click", function () { go(i - 1, true); });
+      $("[data-carousel-next]", ctrl).addEventListener("click", function () { go(i + 1, true); });
+      dots.forEach(function (d, idx) { d.addEventListener("click", function () { go(idx, true); }); });
+      ctrl.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") { go(i + 1, true); } else if (e.key === "ArrowLeft") { go(i - 1, true); }
+      });
+      go(0, false);
+    });
+
     // tabs
     $$("[data-tabs]", root).forEach(function (wrap) {
       var tabs = $$("[data-tab]", wrap);

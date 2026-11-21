@@ -42,9 +42,9 @@
 
 .page-home .who__grid { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: center; }
 @media (min-width: 1000px) { .page-home .who__grid { grid-template-columns: minmax(0, 675px) minmax(0, 439px); justify-content: space-between; } }
-.page-home .who__cluster { position: relative; width: 100%; max-width: 590px; aspect-ratio: 590 / 330; margin-inline: auto; margin-bottom: 18px; }
-.page-home .who__lines { position: absolute; left: 2.9%; top: 28.1%; width: 97.2%; height: auto; }
-.page-home .who__logo { position: absolute; border-radius: 50%; background: #fff; transition: transform .2s; }
+.page-home .who__cluster { position: relative; width: 100%; max-width: 608px; aspect-ratio: 608 / 295; margin-inline: auto; }
+.page-home .who__lines { position: absolute; left: 2.709%; top: 25.48%; width: 94.65%; height: 45.04%; max-width: none; }
+.page-home .who__logo { position: absolute; height: auto; max-width: none; transition: transform .2s; }
 .page-home .who__logo:hover { transform: scale(1.06); }
 .page-home .who__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 5vw, 75px); text-align: center; margin-top: 14px; }
 .page-home .who__stats .stat__label { font-size: clamp(15px, 1.6vw, 20px); }
@@ -104,14 +104,14 @@
       <div>
         <div class="who__cluster" role="img" aria-label="Logos of the member organizations, connected in one network">
           <img class="who__lines" src="assets/img/home/who-lines.svg" alt="" width="576" height="133">
-          <img class="who__logo" src="assets/img/home/who-logo-4.png" alt="" width="105" height="105" style="left:0.3%;top:9.6%;width:17.8%">
-          <img class="who__logo" src="assets/img/home/who-logo-7.png" alt="" width="118" height="118" style="left:0;top:57.7%;width:20%">
-          <img class="who__logo" src="assets/img/home/who-logo-3.png" alt="" width="97" height="97" style="left:21.5%;top:36.5%;width:16.4%">
-          <img class="who__logo" src="assets/img/home/who-logo-1.png" alt="" width="137" height="137" style="left:37.5%;top:59.2%;width:23.2%">
-          <img class="who__logo" src="assets/img/home/who-logo-2.png" alt="" width="122" height="122" style="left:42.2%;top:6.7%;width:20.7%">
-          <img class="who__logo" src="assets/img/home/who-logo-5.png" alt="" width="96" height="96" style="left:63.3%;top:36.5%;width:16.3%">
-          <img class="who__logo" src="assets/img/home/who-logo-6.png" alt="" width="131" height="131" style="left:77.9%;top:0;width:22.2%">
-          <img class="who__logo" src="assets/img/home/who-logo-8.png" alt="" width="114" height="114" style="left:82.5%;top:57.4%;width:19.3%">
+          <img class="who__logo" src="assets/img/home/who-logo-4.png" alt="" width="125" height="125" style="left:-1.32%;top:5.42%;width:20.56%">
+          <img class="who__logo" src="assets/img/home/who-logo-7.png" alt="" width="118" height="118" style="left:0.0%;top:51.19%;width:19.41%">
+          <img class="who__logo" src="assets/img/home/who-logo-3.png" alt="" width="117" height="117" style="left:19.57%;top:29.83%;width:19.24%">
+          <img class="who__logo" src="assets/img/home/who-logo-2.png" alt="" width="142" height="142" style="left:39.14%;top:2.71%;width:23.36%">
+          <img class="who__logo" src="assets/img/home/who-logo-1.png" alt="" width="157" height="157" style="left:34.54%;top:50.17%;width:25.82%">
+          <img class="who__logo" src="assets/img/home/who-logo-5.png" alt="" width="104" height="104" style="left:62.01%;top:33.22%;width:17.11%">
+          <img class="who__logo" src="assets/img/home/who-logo-6.png" alt="" width="151" height="151" style="left:75.16%;top:-3.39%;width:24.84%">
+          <img class="who__logo" src="assets/img/home/who-logo-8.png" alt="" width="134" height="134" style="left:79.61%;top:49.15%;width:22.04%">
         </div>
         <div class="who__stats">
           <div><p class="stat__num">10</p><p class="stat__label">Organizations</p></div>
@@ -650,13 +650,10 @@
         </article>
       </li>
     </ul>
-    <div class="carousel-ctrl" aria-hidden="true">
-      <span class="carousel-ctrl__arrow carousel-ctrl__arrow--prev"><img src="assets/img/org-vbl/arrow-left.svg" alt="" width="12" height="24"></span>
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-filled.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <span class="carousel-ctrl__arrow"><img src="assets/img/org-vbl/arrow-right.svg" alt="" width="12" height="24"></span>
+    <div class="carousel-ctrl" data-carousel>
+      <button type="button" class="carousel-ctrl__arrow carousel-ctrl__arrow--prev" data-carousel-prev aria-label="Previous"><img src="assets/img/org-vbl/arrow-left.svg" alt="" width="12" height="24"></button>
+      <span class="carousel-ctrl__dots" data-carousel-dots data-on="assets/img/org-vbl/dot-filled.svg" data-off="assets/img/org-vbl/dot-outline.svg"></span>
+      <button type="button" class="carousel-ctrl__arrow" data-carousel-next aria-label="Next"><img src="assets/img/org-vbl/arrow-right.svg" alt="" width="12" height="24"></button>
     </div>
   </div>
 </section>
@@ -714,13 +711,10 @@
         </figure>
       </li>
     </ul>
-    <div class="carousel-ctrl" aria-hidden="true">
-      <span class="carousel-ctrl__arrow carousel-ctrl__arrow--prev"><img src="assets/img/org-vbl/arrow-left.svg" alt="" width="12" height="24"></span>
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-filled.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-vbl/dot-outline.svg" alt="" width="20" height="20">
-      <span class="carousel-ctrl__arrow"><img src="assets/img/org-vbl/arrow-right.svg" alt="" width="12" height="24"></span>
+    <div class="carousel-ctrl" data-carousel>
+      <button type="button" class="carousel-ctrl__arrow carousel-ctrl__arrow--prev" data-carousel-prev aria-label="Previous"><img src="assets/img/org-vbl/arrow-left.svg" alt="" width="12" height="24"></button>
+      <span class="carousel-ctrl__dots" data-carousel-dots data-on="assets/img/org-vbl/dot-filled.svg" data-off="assets/img/org-vbl/dot-outline.svg"></span>
+      <button type="button" class="carousel-ctrl__arrow" data-carousel-next aria-label="Next"><img src="assets/img/org-vbl/arrow-right.svg" alt="" width="12" height="24"></button>
     </div>
   </div>
 </section>
@@ -962,13 +956,10 @@
         </article>
       </li>
     </ul>
-    <div class="carousel-ctrl" aria-hidden="true">
-      <span class="carousel-ctrl__arrow carousel-ctrl__arrow--prev"><img src="assets/img/org-reva/arrow-left.svg" alt="" width="12" height="24"></span>
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-filled.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <span class="carousel-ctrl__arrow"><img src="assets/img/org-reva/arrow-right.svg" alt="" width="12" height="24"></span>
+    <div class="carousel-ctrl" data-carousel>
+      <button type="button" class="carousel-ctrl__arrow carousel-ctrl__arrow--prev" data-carousel-prev aria-label="Previous"><img src="assets/img/org-reva/arrow-left.svg" alt="" width="12" height="24"></button>
+      <span class="carousel-ctrl__dots" data-carousel-dots data-on="assets/img/org-reva/dot-filled.svg" data-off="assets/img/org-reva/dot-outline.svg"></span>
+      <button type="button" class="carousel-ctrl__arrow" data-carousel-next aria-label="Next"><img src="assets/img/org-reva/arrow-right.svg" alt="" width="12" height="24"></button>
     </div>
   </div>
 </section>
@@ -1026,13 +1017,10 @@
         </figure>
       </li>
     </ul>
-    <div class="carousel-ctrl" aria-hidden="true">
-      <span class="carousel-ctrl__arrow carousel-ctrl__arrow--prev"><img src="assets/img/org-reva/arrow-left.svg" alt="" width="12" height="24"></span>
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-filled.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <img class="carousel-ctrl__dot" src="assets/img/org-reva/dot-outline.svg" alt="" width="20" height="20">
-      <span class="carousel-ctrl__arrow"><img src="assets/img/org-reva/arrow-right.svg" alt="" width="12" height="24"></span>
+    <div class="carousel-ctrl" data-carousel>
+      <button type="button" class="carousel-ctrl__arrow carousel-ctrl__arrow--prev" data-carousel-prev aria-label="Previous"><img src="assets/img/org-reva/arrow-left.svg" alt="" width="12" height="24"></button>
+      <span class="carousel-ctrl__dots" data-carousel-dots data-on="assets/img/org-reva/dot-filled.svg" data-off="assets/img/org-reva/dot-outline.svg"></span>
+      <button type="button" class="carousel-ctrl__arrow" data-carousel-next aria-label="Next"><img src="assets/img/org-reva/arrow-right.svg" alt="" width="12" height="24"></button>
     </div>
   </div>
 </section>
