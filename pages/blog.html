@@ -1,0 +1,94 @@
+<!-- title: All Blog Posts -->
+<style>
+  .page-blog .bl-hero { position: relative; height: clamp(220px, 27vw, 388px); overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); display: grid; place-items: center; }
+  .page-blog .bl-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 54%; }
+  .page-blog .bl-hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); }
+  .page-blog .bl-hero h1 { position: relative; z-index: 1; color: #fffbf7; font-size: clamp(32px, 3vw, 43px); font-weight: 700; text-align: center; padding-inline: 16px; }
+
+  .page-blog .bl-crumb { font-size: 15px; color: #000; padding-top: 42px; }
+  .page-blog .bl-crumb a { color: #000; }
+  .page-blog .bl-crumb span[aria-current] { font-weight: 700; }
+
+  .page-blog .bl-search { position: relative; width: 552px; max-width: 100%; margin: 33px auto 0; }
+  .page-blog .bl-search input { width: 100%; height: 55px; border: 0; border-radius: 30px; background: #f6ecf0; padding: 0 70px 0 24px; font: 400 18px var(--font); color: #000; }
+  .page-blog .bl-search input::placeholder { color: #aeaeae; }
+  .page-blog .bl-search input:focus { outline: 2px solid var(--pink); }
+  .page-blog .bl-search button { position: absolute; right: 0; top: 0; width: 55px; height: 55px; border: 0; border-radius: 30px; background: var(--pink); display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .page-blog .bl-search button:hover { background: var(--pink-dark); }
+  .page-blog .bl-search button img { width: 35px; height: 35px; }
+
+  .page-blog .bl-list { list-style: none; margin: 0; padding: 12px 0 0; }
+  .page-blog .bl-post { display: grid; grid-template-columns: 1fr; gap: 20px; padding-block: 62px 62px; border-bottom: 1px solid #000; }
+  .page-blog .bl-list > li + li .bl-post { padding-top: 86px; }
+  @media (min-width: 760px) { .page-blog .bl-post { grid-template-columns: 320px minmax(0, 1fr); gap: 31px; } }
+  .page-blog .bl-post__img { display: block; aspect-ratio: 320 / 200; overflow: hidden; width: 100%; max-width: 320px; }
+  .page-blog .bl-post__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s; }
+  .page-blog .bl-post__img:hover img { transform: scale(1.03); }
+  .page-blog .bl-post__body { display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+  .page-blog .bl-post h2 { font-size: clamp(20px, 2vw, 24px); font-weight: 600; line-height: 1.2; max-width: 656px; }
+  .page-blog .bl-post h2 a { color: #000; text-decoration: underline; text-decoration-thickness: from-font; }
+  .page-blog .bl-post h2 a:hover { color: var(--pink); }
+  .page-blog .bl-post__excerpt { font-size: 18px; line-height: 1.21; max-width: 639px; padding-left: 4px; }
+  .page-blog .bl-post__by { font-size: 18px; font-style: italic; line-height: 1.21; margin-top: auto; }
+  .page-blog .bl-empty { text-align: center; padding: 40px 0; color: var(--muted); }
+  .page-blog .bl-wrap { padding-bottom: clamp(48px, 6vw, 90px); }
+  .page-blog .bl-list + .pager { margin-top: 44px; }
+</style>
+
+<section class="bl-hero">
+  <img src="assets/img/blog/hero-flowers.jpg" alt="Close-up of hands of a group of women making colourful paper flowers" width="612" height="408">
+  <h1>All Blog Posts</h1>
+</section>
+
+<div class="container bl-wrap">
+  <nav class="bl-crumb" aria-label="Breadcrumb"><a href="#blog">Blog</a> // <span aria-current="page">All Blog Posts</span></nav>
+
+  <div class="bl-search" role="search">
+    <input id="bl-search-input" type="search" placeholder="Search by organisation, event, etc..." aria-label="Search blog posts" data-search-target="blog">
+    <button type="button" aria-label="Search"><img src="assets/img/blog/search.svg" alt="" width="35" height="35" loading="lazy"></button>
+  </div>
+
+  <ul class="bl-list" data-paginate="4">
+    <li data-filter-item="blog">
+      <article class="bl-post">
+        <a class="bl-post__img" href="#blog-entry" tabindex="-1" aria-hidden="true"><img src="assets/img/blog/culture-month.jpg" alt="" width="720" height="1034" loading="lazy" style="object-position: 50% 31%"></a>
+        <div class="bl-post__body">
+          <h2><a href="#blog-entry">December is Culture Month for Seniors</a></h2>
+          <p class="bl-post__excerpt">Join us this December for a month packed full of activities catered to the elderly members of our community in Loosduinen ...</p>
+          <p class="bl-post__by">By Jane Doe || November 27th 2025</p>
+        </div>
+      </article>
+    </li>
+    <li data-filter-item="blog">
+      <article class="bl-post">
+        <a class="bl-post__img" href="#blog-entry" tabindex="-1" aria-hidden="true"><img src="assets/img/blog/meeting-hub-laak.jpg" alt="" width="639" height="319" loading="lazy"></a>
+        <div class="bl-post__body">
+          <h2><a href="#blog-entry">New Meeting Hub for Women in Laak</a></h2>
+          <p class="bl-post__excerpt">VrouwenbuurtLab  has opened a new location in the former neighborhood and church center De Oase, near the Wissel community center ...</p>
+          <p class="bl-post__by">By Jane Doe || November 25th 2025</p>
+        </div>
+      </article>
+    </li>
+    <li data-filter-item="blog">
+      <article class="bl-post">
+        <a class="bl-post__img" href="#blog-entry" tabindex="-1" aria-hidden="true"><img src="assets/img/blog/researchers.png" alt="" width="500" height="332" loading="lazy"></a>
+        <div class="bl-post__body">
+          <h2><a href="#blog-entry">Community of Practice Hiring Researchers for Community Improvement (12h)</a></h2>
+          <p class="bl-post__excerpt">We are looking for students or professional researchers to conduct research on how to make our neighbourhood a better place, such as ...</p>
+          <p class="bl-post__by">By Jane Doe || November 20th 2024</p>
+        </div>
+      </article>
+    </li>
+    <li data-filter-item="blog">
+      <article class="bl-post">
+        <a class="bl-post__img" href="#blog-entry" tabindex="-1" aria-hidden="true"><img src="assets/img/blog/charity-sale.png" alt="" width="736" height="981" loading="lazy"></a>
+        <div class="bl-post__body">
+          <h2><a href="#blog-entry">Charity Sale for Better Neighbourhoods</a></h2>
+          <p class="bl-post__excerpt">On 9 December 2024, we will organize a charity to improve roadways, clean-ups, and better services. Sell or buy foods for the charity. Interested in joining? Sign up!</p>
+          <p class="bl-post__by">By Jane Doe || November 1st 2024</p>
+        </div>
+      </article>
+    </li>
+  </ul>
+  <p class="bl-empty" data-empty="blog" hidden>No results</p>
+</div>

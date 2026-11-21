@@ -1,0 +1,168 @@
+<!-- title: Finding A Balance For Your Organization -->
+<!-- Topic colour: #c1a4e9 (Figma node 604:4844) -->
+<style>
+.page-guide-balance { --topic: #c1a4e9; }
+.page-guide-balance .guide-hero { background: var(--topic); min-height: clamp(160px, 20vw, 248px); display: flex; align-items: center; }
+.page-guide-balance .guide-hero .container { max-width: 1320px; }
+.page-guide-balance .guide-hero h1 { color: #fff; font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; line-height: 1.2; padding-block: 40px; }
+.page-guide-balance .guide-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 32px; }
+.page-guide-balance .guide-bar .breadcrumb { color: #000; padding-block: 0; font-size: 15px; gap: 10px; }
+.page-guide-balance .guide-bar .breadcrumb a { color: #000; }
+.page-guide-balance .guide-bar .breadcrumb span[aria-current] { font-weight: 700; }
+.page-guide-balance .guide-tools { display: flex; align-items: center; gap: 12px; }
+.page-guide-balance .guide-tools .guide-iconbtn:first-child { margin-right: clamp(16px, 4vw, 53px); }
+.page-guide-balance .guide-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 41px; border-radius: 14px; background: var(--topic); transition: filter .15s, transform .15s; }
+.page-guide-balance a.guide-iconbtn:hover { filter: brightness(.92); transform: translateY(-1px); }
+.page-guide-balance .guide-iconbtn img { width: 27px; height: auto; }
+.page-guide-balance .guide-iconbtn img.guide-iconbtn__list { width: 35px; height: 35px; }
+.page-guide-balance .guide-iconbtn.is-disabled { opacity: .4; }
+.page-guide-balance .flip { transform: scaleX(-1); }
+.page-guide-balance .guide-layout { display: grid; grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: clamp(64px, 8vw, 140px); }
+@media (min-width: 960px) { .page-guide-balance .guide-layout { grid-template-columns: 255px minmax(0, 745px); justify-content: center; column-gap: clamp(40px, 6vw, 82px); padding-top: 64px; } }
+.page-guide-balance .guide-aside { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+@media (min-width: 960px) { .page-guide-balance .guide-aside { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; gap: 70px; } }
+.page-guide-balance .guide-toc { width: 100%; max-width: 255px; display: flex; flex-direction: column; gap: 22px; }
+.page-guide-balance .guide-toc__title { background: var(--topic); color: #fff; border-radius: 22px; padding: 7px 20px; font-size: 20px; font-weight: 700; line-height: 23px; }
+.page-guide-balance .guide-toc ul { list-style: none; margin: 0; padding: 0 15px 0 20px; display: flex; flex-direction: column; gap: 15px; }
+.page-guide-balance .guide-toc a { font-size: 18px; font-weight: 700; text-decoration: none; }
+.page-guide-balance .guide-toc a:hover { text-decoration: underline; text-decoration-color: var(--topic); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.page-guide-balance .guide-back { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 37px; border: 3px solid var(--topic); border-radius: 22px; font-size: 20px; font-weight: 700; text-decoration: none; color: #000; transition: background .15s; }
+.page-guide-balance .guide-back:hover { background: var(--topic); color: #fff; }
+.page-guide-balance .guide-aside__art { width: 100%; max-width: 290px; height: auto; align-self: center; }
+@media (min-width: 960px) { .page-guide-balance .guide-aside__art { align-self: flex-end; } }
+.page-guide-balance .guide-article { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 110px); min-width: 0; }
+.page-guide-balance .guide-section { display: flex; flex-direction: column; gap: 20px; }
+.page-guide-balance .guide-section > h2 { font-size: clamp(26px, 2.6vw, 32px); font-weight: 700; line-height: 1.2; scroll-margin-top: calc(var(--header-h) + 24px); }
+.page-guide-balance .guide-section p, .page-guide-balance .guide-section li { font-size: clamp(18px, 1.6vw, 20px); line-height: 1.2; }
+.page-guide-balance .guide-question { font-weight: 600; font-style: italic; }
+.page-guide-balance .guide-bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; max-width: 652px; }
+.page-guide-balance .guide-bullets li { position: relative; padding-left: 1em; }
+.page-guide-balance .guide-bullets li::before { content: "•"; position: absolute; left: 0; }
+.page-guide-balance .guide-bullets strong { font-weight: 600; }
+.page-guide-balance .guide-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; max-width: 652px; }
+.page-guide-balance .guide-steps h3 { font-size: clamp(21px, 2vw, 24px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+.page-guide-balance .guide-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.page-guide-balance .guide-checklist label { display: grid; grid-template-columns: 25px 1fr; gap: clamp(18px, 3vw, 42px); align-items: center; cursor: pointer; }
+.page-guide-balance .guide-checklist input { appearance: none; -webkit-appearance: none; width: 25px; height: 25px; margin: 0; border: 3px solid var(--topic); border-radius: 0; background: #fff center / 17px no-repeat; cursor: pointer; transition: background-color .15s; }
+.page-guide-balance .guide-checklist input:checked { background-color: var(--topic); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'%3E%3Cpath d='M21.35 1.46 9.9 16.57 3.13 9.8 0 12.92l10.42 10.42L25 4.59z' fill='%23fff'/%3E%3C/svg%3E"); }
+.page-guide-balance .guide-checklist input:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+.page-guide-balance .guide-check__text { font-size: clamp(18px, 1.6vw, 20px); line-height: 1.2; }
+.page-guide-balance .guide-check__note { font-size: 16px; }
+.page-guide-balance .guide-checklist input:checked + .guide-check__text { color: rgba(0, 0, 0, .55); }
+.page-guide-balance .guide-dos { display: flex; flex-direction: column; gap: 30px; max-width: 597px; }
+.page-guide-balance .guide-dos h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.page-guide-balance .guide-dos ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.page-guide-balance .guide-dos li { display: grid; grid-template-columns: 25px 1fr; gap: clamp(18px, 3vw, 42px); align-items: center; }
+.page-guide-balance .guide-dos li span { max-width: 525px; }
+.page-guide-balance .guide-pager { display: flex; flex-wrap: wrap; gap: 20px 50px; }
+.page-guide-balance .guide-pager .guide-btn--next { margin-left: auto; }
+.page-guide-balance .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; max-width: 100%; height: 52px; padding: 0 25px; border-radius: 35px; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: filter .15s, transform .15s; }
+.page-guide-balance .guide-btn:hover { filter: brightness(.92); transform: translateY(-1px); }
+.page-guide-balance .guide-btn img { width: 31px; height: auto; flex: none; }
+.page-guide-balance .guide-btn img.guide-btn__back { width: 26px; height: 21px; }
+.page-guide-balance .guide-btn--back, .page-guide-balance .guide-btn--next { gap: 30px; }
+@media (max-width: 700px) { .page-guide-balance .guide-pager { flex-direction: column; align-items: stretch; } .page-guide-balance .guide-pager .guide-btn { width: 100%; } .page-guide-balance .guide-pager .guide-btn--next { margin-left: 0; } }
+</style>
+
+<section class="guide-hero">
+  <div class="container"><h1>Guide 4: Finding A Balance For Your Organization</h1></div>
+</section>
+
+<div class="container guide-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <span>Resources</span> <span aria-hidden="true">//</span> <a href="#guide">Step by Step Guides</a> <span aria-hidden="true">//</span> <span aria-current="page">Finding a Balance For Your Organization</span>
+  </nav>
+  <div class="guide-tools">
+    <a class="guide-iconbtn" href="#guide" aria-label="Back to the list of guides" title="Back to list"><img class="guide-iconbtn__list" src="assets/img/guide-balance/list.svg" alt="" width="35" height="35"></a>
+    <a class="guide-iconbtn" href="#guide-frictions" aria-label="Previous guide" title="Previous guide"><img class="flip" src="assets/img/guide-balance/arrow.svg" alt="" width="33" height="22"></a>
+    <a class="guide-iconbtn" href="#guide-generations" aria-label="Next guide" title="Next guide"><img src="assets/img/guide-balance/arrow.svg" alt="" width="33" height="22"></a>
+  </div>
+</div>
+
+<div class="container guide-layout">
+  <aside class="guide-aside">
+    <nav class="guide-toc" aria-label="Sections">
+      <p class="guide-toc__title">Sections</p>
+      <ul>
+        <li><a href="#guide-balance" data-scroll="balance-challenge">The Challenge</a></li>
+        <li><a href="#guide-balance" data-scroll="balance-experience">What (Not) To Do</a></li>
+        <li><a href="#guide-balance" data-scroll="balance-steps">Step-By-Step Plan</a></li>
+        <li><a href="#guide-balance" data-scroll="balance-checklist">Checklist</a></li>
+        <li><a href="#guide-balance" data-scroll="balance-dos">Do’s And Don’t’s</a></li>
+      </ul>
+      <a class="guide-back" href="#guide">Back to guide</a>
+    </nav>
+    <img class="guide-aside__art" src="assets/img/guide-balance/illustration.png" alt="Illustration of a woman juggling and balancing many objects" width="1168" height="1052" loading="lazy">
+  </aside>
+
+  <article class="guide-article">
+    <section class="guide-section" aria-labelledby="balance-challenge">
+      <h2 id="balance-challenge">The Challenge</h2>
+      <p>As an organization, you often try to organize activities and gatherings that are as accessible as possible for your target group. You invest a lot of time and energy in your organization, often on a voluntary basis. You usually want your activities or gatherings to be well attended. Ideally, you’d like visitors to eventually become active members of your organization. But how do you ensure that people stay engaged with your organization? How do you motivate people and make sure they remain active? And most importantly:</p>
+      <p class="guide-question">How do you find a balance between giving and taking?</p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="balance-experience">
+      <h2 id="balance-experience">From Experience: What (Not) To Do</h2>
+      <ul class="guide-bullets">
+        <li><strong>Clear communication:</strong> From day one, rules and expectations should be clear. This prevents confusion and provides structure within the group.</li>
+        <li><strong>Screening volunteers:</strong> It’s important to consider motivation and willingness to participate. Occasionally check in with volunteers you haven’t seen for a while to see if they still want to stay active. This way, space is created for new volunteers.</li>
+        <li><strong>Membership fees:</strong> Are you an organization that works with paying members? Then it’s important that people continue to pay their fees to cover costs. If some members don’t pay but still use the facilities, it creates unfair situations. Make sure you also have rules for non-paying members and decide how your organization will handle that.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section" aria-labelledby="balance-steps">
+      <h2 id="balance-steps">Step-By-Step Plan</h2>
+      <ol class="guide-steps">
+        <li><h3>Step 1: Overview</h3><p>Make an overview of your active volunteers. Who are the active volunteers? What exactly do the active volunteers do for your organization? And what role do you play within the organization?</p></li>
+        <li><h3>Step 2: Rules and expectations</h3><p>Ensure that members know what is expected of them. When you are devising the rules, involve your volunteers/members in the process. This will give them a sense of ownership of the rules and make them important to them.</p></li>
+        <li><h3>Step 3: Consequences</h3><p>Make clear agreements with volunteers about their commitment. Also make clear agreements about what happens if they fail to meet their commitments.</p></li>
+        <li><h3>Step 4: Check in</h3><p>Schedule regular check-ins with your volunteers. This means asking your volunteers every so often how they feel things are going and whether they want to continue volunteering (and for how long).</p></li>
+        <li><h3>Step 5: Filtering</h3><p>Contact volunteers who have not been active for a while. Talk to them and try to find out why they are no longer active. Ask if they still want to be active and what is feasible for them in terms of commitment and time. Make clear agreements about this.</p></li>
+        <li><h3>Step 6: Team building</h3><p>Organize regular activities and meetings to strengthen the group spirit.</p></li>
+        <li><h3>Step 7: Appreciation</h3><p>Show appreciation for volunteers, recognize their efforts, and celebrate successes together. A compliment can mean a lot.</p></li>
+      </ol>
+    </section>
+
+    <section class="guide-section" aria-labelledby="balance-checklist">
+      <h2 id="balance-checklist">Checklist</h2>
+      <ul class="guide-checklist">
+        <li><label><input type="checkbox"><span class="guide-check__text">Are the rules regarding membership and participation clear and communicated to members/volunteers?<br><span class="guide-check__note">In what way do you communicate with each other? Why does it work or not work?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Did you come up with the rules together with the volunteers/members?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">How are new volunteers/members introduced to the organization and to other volunteers/members?<br><span class="guide-check__note">Do you also explain the rules to new volunteers/members? Why or why not?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Do you discuss expectations, tasks, and time commitment with new volunteers? <span class="guide-check__note">Do you also discuss with them how long they want to remain a volunteer?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Are new volunteers allowed to discuss their preferences and strengths and use them within the organization?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">What do you do with volunteers who haven’t been in touch for a long time or are no longer very active?<br><span class="guide-check__note">Have you also established rules for how to handle this?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Do you also do activities together to strengthen the sense of group cohesion?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">When you achieve a success, do you celebrate it? How do you celebrate it?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Do you regularly discuss collaboration? How often?<br><span class="guide-check__note">Do you address successes and challenges? Do these kinds of discussions lead to improvement?</span></span></label></li>
+      </ul>
+    </section>
+
+    <section class="guide-section" aria-labelledby="balance-dos">
+      <h2 id="balance-dos">Do’s And Don’t’s</h2>
+      <div class="guide-dos">
+        <div>
+          <h3>DO</h3>
+          <ul>
+            <li><img src="assets/img/guide-balance/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Zorg voor heldere en conse uente communicatie. Geen duidelijke regels en structuur hebben.</span></li>
+            <li><img src="assets/img/guide-balance/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Maak duidelijke afspraken over een eventuele financiële bijdrage en zorg voor gelijke behandeling van leden.</span></li>
+            <li><img src="assets/img/guide-balance/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Stimuleer participatie. org ervoor dat vrijwilligers zich ook onderdeel voelen van de organisatie.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>DON’T</h3>
+          <ul>
+            <li><img src="assets/img/guide-balance/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Geen duidelijke regels en structuur hebben.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <nav class="guide-pager" aria-label="Guide navigation">
+      <a class="guide-btn guide-btn--back" href="#guide"><img class="guide-btn__back" src="assets/img/guide-balance/back-to-list.svg" alt="" width="26" height="21" loading="lazy">Back To List</a>
+      <a class="guide-btn guide-btn--prev" href="#guide-frictions"><img class="flip" src="assets/img/guide-balance/arrow.svg" alt="" width="33" height="22" loading="lazy">Previous Guide</a>
+      <a class="guide-btn guide-btn--next" href="#guide-generations">Next Guide<img src="assets/img/guide-balance/arrow.svg" alt="" width="33" height="22" loading="lazy"></a>
+    </nav>
+  </article>
+</div>

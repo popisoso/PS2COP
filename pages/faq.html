@@ -1,0 +1,85 @@
+<!-- title: Frequently Asked Questions -->
+<style>
+  .page-faq .faq-hero { position: relative; margin-top: 24px; }
+  .page-faq .faq-box { background: rgba(221, 92, 144, 0.5); border-radius: clamp(30px, 4vw, 50px); padding: clamp(32px, 5.5vw, 77px) clamp(22px, 4vw, 58px); }
+  .page-faq .faq-box__inner { display: flex; flex-direction: column; gap: clamp(18px, 2.4vw, 32px); max-width: 597px; }
+  .page-faq .faq-box h1 { font-size: clamp(30px, 3.4vw, 43px); font-weight: 700; line-height: 1.2; }
+  .page-faq .faq-box__sub { font-size: clamp(20px, 2.2vw, 28px); line-height: 1.2; }
+  .page-faq .faq-search { position: relative; width: 552px; max-width: 100%; height: 55px; }
+  .page-faq .faq-search input { width: 100%; height: 100%; border: 0; border-radius: 30px; background: #fff; padding: 0 70px 0 24px; font: 400 18px/1.2 var(--font); color: #000; }
+  .page-faq .faq-search input::placeholder { color: #aeaeae; }
+  .page-faq .faq-search button { position: absolute; right: 0; top: 0; width: 55px; height: 55px; border: 0; border-radius: 30px; background: #bdd0fb; display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .page-faq .faq-search button img { width: 35px; height: 35px; }
+  .page-faq .faq-illu-card { background: var(--pink); border-radius: clamp(30px, 4vw, 50px); padding: 37px 53px; display: flex; align-items: center; justify-content: center; width: 430px; max-width: 100%; margin: 20px auto 0; }
+  .page-faq .faq-illu { position: relative; width: 324px; max-width: 100%; aspect-ratio: 324.16 / 324.53; }
+  .page-faq .faq-illu img { position: absolute; height: auto; max-width: none; }
+  @media (min-width: 1000px) {
+    .page-faq .faq-hero { min-height: 433px; }
+    .page-faq .faq-box { width: 94.56%; min-height: 363px; }
+    .page-faq .faq-illu-card { position: absolute; right: 0; top: 34px; margin: 0; height: 399px; width: 37.72%; }
+  }
+  .page-faq .faq-list { margin-top: clamp(48px, 8vw, 123px); border-top: 1px solid #000; }
+  .page-faq .faq-list .acc { border-bottom: 1px solid #000; }
+  .page-faq .faq-list .acc > summary { font-size: clamp(18px, 1.8vw, 22px); font-weight: 400; padding: 26px 0; gap: 30px; }
+  .page-faq .faq-list .acc > summary::after { content: none; }
+  .page-faq .faq-list .acc > summary img { width: 44px; height: 41px; flex: none; transition: transform .2s; }
+  .page-faq .faq-list .acc[open] > summary { font-weight: 600; }
+  .page-faq .faq-list .acc[open] > summary img { transform: scaleY(-1); }
+  .page-faq .faq-list .acc__body { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.25; padding: 0 0 26px; }
+  .page-faq .faq-list .acc__body a { color: var(--pink-dark); font-weight: 600; }
+  .page-faq .faq-qa { padding-bottom: clamp(48px, 7vw, 90px); }
+  .page-faq [data-empty] { padding: 26px 0; color: var(--muted); }
+</style>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="#about">About Us</a> // <span aria-current="page"><b>FAQ</b></span></nav>
+
+  <section class="faq-hero" aria-labelledby="faq-title">
+    <div class="faq-box">
+      <div class="faq-box__inner">
+        <h1 id="faq-title">Frequently Asked Questions</h1>
+        <p class="faq-box__sub">Search what you’ve been looking for</p>
+        <div class="faq-search" role="search">
+          <input id="faq-search-input" type="search" placeholder="Search..." aria-label="Search the FAQ" data-search-target="faq">
+          <button type="button" aria-label="Search"><img src="assets/img/faq/search.svg" alt="" width="35" height="35"></button>
+        </div>
+      </div>
+    </div>
+    <div class="faq-illu-card">
+      <div class="faq-illu" role="img" aria-label="Illustration of a woman working on a laptop at a desk between plants">
+        <img src="assets/img/faq/illu-01.svg" alt="" width="316" height="319" style="left:1.61%;top:0.86%;width:97.50%">
+        <img src="assets/img/faq/illu-02.svg" alt="" width="127" height="323" style="left:0.00%;top:0.32%;width:39.13%">
+        <img src="assets/img/faq/illu-03.svg" alt="" width="54" height="101" style="left:74.65%;top:52.02%;width:16.55%">
+        <img src="assets/img/faq/illu-04.svg" alt="" width="125" height="91" style="left:41.05%;top:71.43%;width:38.60%">
+        <img src="assets/img/faq/illu-05.svg" alt="" width="71" height="103" style="left:60.30%;top:41.08%;width:21.89%">
+        <img src="assets/img/faq/illu-06.svg" alt="" width="99" height="45" style="left:43.16%;top:59.40%;width:30.45%">
+        <img src="assets/img/faq/illu-07.svg" alt="" width="53" height="62" style="left:65.07%;top:80.80%;width:16.35%">
+        <img src="assets/img/faq/illu-08.svg" alt="" width="191" height="87" style="left:31.53%;top:72.51%;width:58.79%">
+        <img src="assets/img/faq/illu-09.svg" alt="" width="8" height="67" style="left:74.13%;top:5.79%;width:2.32%">
+        <img src="assets/img/faq/illu-10.svg" alt="" width="11" height="80" style="left:76.70%;top:0.00%;width:3.24%">
+        <img src="assets/img/faq/illu-11.svg" alt="" width="17" height="66" style="left:77.73%;top:7.70%;width:5.34%">
+        <img src="assets/img/faq/illu-12.svg" alt="" width="23" height="20" style="left:73.98%;top:22.15%;width:7.20%">
+        <img src="assets/img/faq/illu-13.svg" alt="" width="123" height="76" style="left:46.06%;top:8.75%;width:37.82%">
+        <img src="assets/img/faq/illu-14.svg" alt="" width="57" height="169" style="left:82.33%;top:47.83%;width:17.67%">
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-qa" aria-label="Questions and answers">
+    <div class="faq-list">
+      <details class="acc" data-filter-item="faq">
+        <summary>Where do I find resources for setting up my organization? <img src="assets/img/faq/arrow-down.svg" alt="" width="44" height="41"></summary>
+        <div class="acc__body"><a href="#guide">Resources</a></div>
+      </details>
+      <details class="acc" data-filter-item="faq">
+        <summary>How can I attract more members? <img src="assets/img/faq/arrow-down.svg" alt="" width="44" height="41"></summary>
+        <div class="acc__body">You can attract more members by being visible in the neighborhood, offering accessible activities, and collaborating with nearby organizations. Clear communication, word-of-mouth outreach, and partnering with community centers or schools can help you reach new groups. Regular events, open meetings, and a welcoming atmosphere encourage women to join and stay involved.</div>
+      </details>
+      <details class="acc" data-filter-item="faq">
+        <summary>My organization moved locations. <img src="assets/img/faq/arrow-down.svg" alt="" width="44" height="41"></summary>
+        <div class="acc__body">If your organization has moved, inform the Krachtvrouwen in de Wijk network directly so your new location can be updated in shared materials, maps, and communication channels. Provide the new address, your updated opening hours, and whether the move changes the type of activities you offer. This helps other organizations, partners, and local women find you easily and ensures the network’s overview of neighborhood initiatives stays accurate.</div>
+      </details>
+      <p data-empty="faq" hidden>No results</p>
+    </div>
+  </section>
+</div>

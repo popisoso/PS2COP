@@ -1,0 +1,154 @@
+<!-- title: Step by Step Guides for Organizations -->
+<style>
+  /* Guide topic colours (exact hex from Figma "GUIDE" frame) */
+  .page-guide {
+    --guide-pink: #dd5c90;
+    --guide-teal: #39abba;
+    --guide-orange: #ffa62b;
+    --guide-purple: #c1a4e9;
+    --guide-green: #ccce37;
+  }
+  .page-guide .guide-intro { max-width: 1046px; padding-block: 53px clamp(40px, 5vw, 78px); }
+  .page-guide .guide-intro h1 { font-size: clamp(30px, 3.4vw, 40px); font-weight: 600; line-height: 1.2; }
+  .page-guide .guide-crumbs { display: flex; flex-wrap: wrap; gap: 10px; font-size: 15px; margin-top: 17px; }
+  .page-guide .guide-crumbs [aria-current] { font-weight: 700; }
+  .page-guide .guide-intro__body { padding-top: 42px; font-size: clamp(18px, 1.6vw, 20px); line-height: 1.25; }
+  .page-guide .guide-intro__body h2 { font-size: inherit; font-weight: 700; line-height: 1.25; margin-bottom: 17px; }
+  .page-guide .guide-intro__body p + p.guide-intro__gap { margin-top: 1.25em; }
+
+  .page-guide .guide-topics { list-style: none; margin: 0; padding: 0; }
+  .page-guide .guide-topic { background: var(--topic); }
+  .page-guide .guide-topic--pink { --topic: var(--guide-pink); }
+  .page-guide .guide-topic--teal { --topic: var(--guide-teal); }
+  .page-guide .guide-topic--orange { --topic: var(--guide-orange); }
+  .page-guide .guide-topic--purple { --topic: var(--guide-purple); }
+  .page-guide .guide-topic--green { --topic: var(--guide-green); }
+  .page-guide .guide-topic__inner { display: flex; justify-content: flex-end; align-items: flex-end; gap: 20px; min-height: 461px; padding-top: 61px; }
+  .page-guide .guide-topic__art { flex: 0 1 auto; min-width: 0; height: auto; }
+  .page-guide .guide-topic__art--location { width: 485px; aspect-ratio: 485 / 400; }
+  .page-guide .guide-topic__art--structure { width: 511px; aspect-ratio: 511 / 385; object-fit: cover; object-position: 100% 0; }
+  .page-guide .guide-topic__art--frictions { width: 439px; aspect-ratio: 439 / 380; object-fit: cover; }
+  .page-guide .guide-topic__art--balance { width: 444px; aspect-ratio: 444 / 400; object-fit: cover; }
+  .page-guide .guide-topic__art--generations { width: 521px; aspect-ratio: 521 / 388; object-fit: contain; object-position: 50% 100%; }
+
+  .page-guide .guide-card { flex: 0 0 auto; width: 510px; max-width: 100%; min-height: 342px; background: #fff; border-radius: 69px 69px 0 69px; filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25)); padding: 50px; display: flex; flex-direction: column; justify-content: space-between; gap: 30px; }
+  .page-guide .guide-card__text { display: flex; flex-direction: column; gap: 12px; font-weight: 600; }
+  .page-guide .guide-card__title { font-size: 23px; font-weight: 600; line-height: 1.2; }
+  .page-guide .guide-card__title a { text-decoration: none; }
+  .page-guide .guide-card__title a:hover { color: var(--pink-dark); }
+  .page-guide .guide-card__num { display: block; font-size: 30px; margin-bottom: 12px; }
+  .page-guide .guide-card__desc { font-size: 18px; line-height: 1.2; color: rgba(0, 0, 0, 0.7); }
+  .page-guide .guide-card__actions { display: flex; justify-content: space-between; align-items: center; filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25)); }
+  .page-guide .guide-card__btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; border-radius: 18px; background: #ababab; transition: background .15s, transform .15s; }
+  .page-guide .guide-card__btn:hover { background: #8f8f8f; transform: translateY(-2px); }
+  .page-guide .guide-card__btn--open { width: 78px; background: transparent; }
+  .page-guide .guide-card__btn--open img { width: 78px; height: 46px; border-radius: 18px; }
+  .page-guide .guide-card__btn--open:hover { background: transparent; }
+  .page-guide .guide-card__btn--open:hover img { filter: brightness(.85); }
+  .page-guide .guide-card__btn--print { width: 71px; }
+  .page-guide .guide-card__btn--print img { width: 31px; height: 31px; }
+
+  @media (max-width: 899px) {
+    .page-guide .guide-topic__inner { flex-direction: column; align-items: center; min-height: 0; padding-top: 32px; gap: 16px; }
+    .page-guide .guide-topic__art { width: min(100%, 420px); }
+    .page-guide .guide-card { width: 100%; min-height: 0; padding: 32px 28px; border-radius: 44px 44px 0 44px; }
+    .page-guide .guide-card__num { font-size: 26px; }
+  }
+</style>
+
+<section class="container guide-intro" aria-labelledby="guide-title">
+  <h1 id="guide-title">Step by Step Guides for Organizations</h1>
+  <nav class="guide-crumbs" aria-label="Breadcrumb">
+    <span>Resources</span>
+    <span aria-hidden="true">//</span>
+    <span aria-current="page">Step by Step Guides</span>
+  </nav>
+  <div class="guide-intro__body">
+    <h2>Step-by-step guides: practical tools for women's organizations</h2>
+    <p>Within Kracht(vrouwen) in de wijk women's organizations in The Hague have collaborated on five practical step-by-step plans. Each step-by-step plan is based on real questions and challenges from practice. They offer concrete tools, examples, and tips that are directly applicable to the work of women's organizations.</p>
+    <p>Whether you are looking for a location, want to grow as an organization, or want to create better cooperation within your team, these step-by-step plans will help you on your way.</p>
+    <p class="guide-intro__gap">Download the step-by-step plans below and use them to support your organization.</p>
+  </div>
+</section>
+
+<ul class="guide-topics">
+  <li class="guide-topic guide-topic--pink">
+    <article class="container guide-topic__inner" aria-labelledby="guide-topic-1">
+      <img class="guide-topic__art guide-topic__art--location" src="assets/img/guide/location-illustration.svg" alt="" width="485" height="400">
+      <div class="guide-card">
+        <div class="guide-card__text">
+          <h2 class="guide-card__title" id="guide-topic-1"><a href="#guide-location"><span class="guide-card__num">Guide 1:</span>Finding a Location</a></h2>
+          <p class="guide-card__desc">How to find an affordable location suitable for activities and your target group.</p>
+        </div>
+        <div class="guide-card__actions">
+          <a class="guide-card__btn guide-card__btn--open" href="#guide-location" aria-label="Open guide 1: Finding a Location"><img src="assets/img/guide/arrow-btn.svg" alt="" width="78" height="46" loading="lazy"></a>
+          <a class="guide-card__btn guide-card__btn--print" href="https://www.dehaagsehogeschool.nl/media/stappenplan-1-het-vinden-van-een-locatie" target="_blank" rel="noopener" aria-label="Download printable step-by-step plan 1 (opens in a new tab)"><img src="assets/img/guide/printer.svg" alt="" width="31" height="31" loading="lazy"></a>
+        </div>
+      </div>
+    </article>
+  </li>
+
+  <li class="guide-topic guide-topic--teal">
+    <article class="container guide-topic__inner" aria-labelledby="guide-topic-2">
+      <img class="guide-topic__art guide-topic__art--structure" src="assets/img/guide/structure-illustration.png" alt="" width="1932" height="1114" loading="lazy">
+      <div class="guide-card">
+        <div class="guide-card__text">
+          <h2 class="guide-card__title" id="guide-topic-2"><a href="#guide-structure"><span class="guide-card__num">Guide 2:</span>Organizational Structure</a></h2>
+          <p class="guide-card__desc">The steps you need to follow when starting a new organization. Actions, considerations, and processes involved in setting it up successfully.</p>
+        </div>
+        <div class="guide-card__actions">
+          <a class="guide-card__btn guide-card__btn--open" href="#guide-structure" aria-label="Open guide 2: Organizational Structure"><img src="assets/img/guide/arrow-btn.svg" alt="" width="78" height="46" loading="lazy"></a>
+          <a class="guide-card__btn guide-card__btn--print" href="https://www.dehaagsehogeschool.nl/media/stappenplan-2-organisatievorm" target="_blank" rel="noopener" aria-label="Download printable step-by-step plan 2 (opens in a new tab)"><img src="assets/img/guide/printer.svg" alt="" width="31" height="31" loading="lazy"></a>
+        </div>
+      </div>
+    </article>
+  </li>
+
+  <li class="guide-topic guide-topic--orange">
+    <article class="container guide-topic__inner" aria-labelledby="guide-topic-3">
+      <img class="guide-topic__art guide-topic__art--frictions" src="assets/img/guide/frictions-illustration.png" alt="" width="1024" height="888" loading="lazy">
+      <div class="guide-card">
+        <div class="guide-card__text">
+          <h2 class="guide-card__title" id="guide-topic-3"><a href="#guide-frictions"><span class="guide-card__num">Guide 3:</span>Preventing Internal Friction</a></h2>
+          <p class="guide-card__desc">How to prevent friction within the organization and make sure everyone feels welcome.</p>
+        </div>
+        <div class="guide-card__actions">
+          <a class="guide-card__btn guide-card__btn--open" href="#guide-frictions" aria-label="Open guide 3: Preventing Internal Friction"><img src="assets/img/guide/arrow-btn.svg" alt="" width="78" height="46" loading="lazy"></a>
+          <a class="guide-card__btn guide-card__btn--print" href="https://www.dehaagsehogeschool.nl/media/8031" target="_blank" rel="noopener" aria-label="Download printable step-by-step plan 3 (opens in a new tab)"><img src="assets/img/guide/printer.svg" alt="" width="31" height="31" loading="lazy"></a>
+        </div>
+      </div>
+    </article>
+  </li>
+
+  <li class="guide-topic guide-topic--purple">
+    <article class="container guide-topic__inner" aria-labelledby="guide-topic-4">
+      <img class="guide-topic__art guide-topic__art--balance" src="assets/img/guide/balance-illustration.png" alt="" width="1168" height="1052" loading="lazy">
+      <div class="guide-card">
+        <div class="guide-card__text">
+          <h2 class="guide-card__title" id="guide-topic-4"><a href="#guide-balance"><span class="guide-card__num">Guide 4:</span>Finding A Balance For Your Organization</a></h2>
+          <p class="guide-card__desc">How to find the balance between giving and taking within your organization.</p>
+        </div>
+        <div class="guide-card__actions">
+          <a class="guide-card__btn guide-card__btn--open" href="#guide-balance" aria-label="Open guide 4: Finding A Balance For Your Organization"><img src="assets/img/guide/arrow-btn.svg" alt="" width="78" height="46" loading="lazy"></a>
+          <a class="guide-card__btn guide-card__btn--print" href="https://www.dehaagsehogeschool.nl/media/stappenplan-4-balans-geven-en-nemen" target="_blank" rel="noopener" aria-label="Download printable step-by-step plan 4 (opens in a new tab)"><img src="assets/img/guide/printer.svg" alt="" width="31" height="31" loading="lazy"></a>
+        </div>
+      </div>
+    </article>
+  </li>
+
+  <li class="guide-topic guide-topic--green">
+    <article class="container guide-topic__inner" aria-labelledby="guide-topic-5">
+      <img class="guide-topic__art guide-topic__art--generations" src="assets/img/guide/generations-illustration.png" alt="" width="1024" height="787" loading="lazy">
+      <div class="guide-card">
+        <div class="guide-card__text">
+          <h2 class="guide-card__title" id="guide-topic-5"><a href="#guide-generations"><span class="guide-card__num">Guide 5:</span>Uniting Different Generations</a></h2>
+          <p class="guide-card__desc">How to connect different generations and bring them together.</p>
+        </div>
+        <div class="guide-card__actions">
+          <a class="guide-card__btn guide-card__btn--open" href="#guide-generations" aria-label="Open guide 5: Uniting Different Generations"><img src="assets/img/guide/arrow-btn.svg" alt="" width="78" height="46" loading="lazy"></a>
+          <a class="guide-card__btn guide-card__btn--print" href="https://www.dehaagsehogeschool.nl/media/stappenplan-5-samenbrengen-verschillende-generaties" target="_blank" rel="noopener" aria-label="Download printable step-by-step plan 5 (opens in a new tab)"><img src="assets/img/guide/printer.svg" alt="" width="31" height="31" loading="lazy"></a>
+        </div>
+      </div>
+    </article>
+  </li>
+</ul>

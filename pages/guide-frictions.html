@@ -1,0 +1,175 @@
+<!-- title: Preventing Internal Friction -->
+<!-- Topic colour: #ffa62b (Figma node 604:5295) -->
+<style>
+.page-guide-frictions { --topic: #ffa62b; }
+.page-guide-frictions .guide-hero { background: var(--topic); min-height: clamp(160px, 20vw, 248px); display: flex; align-items: center; }
+.page-guide-frictions .guide-hero .container { max-width: 1320px; }
+.page-guide-frictions .guide-hero h1 { color: #fff; font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; line-height: 1.2; padding-block: 40px; }
+.page-guide-frictions .guide-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 32px; }
+.page-guide-frictions .guide-bar .breadcrumb { color: #000; padding-block: 0; font-size: 15px; gap: 10px; }
+.page-guide-frictions .guide-bar .breadcrumb a { color: #000; }
+.page-guide-frictions .guide-bar .breadcrumb span[aria-current] { font-weight: 700; }
+.page-guide-frictions .guide-tools { display: flex; align-items: center; gap: 12px; }
+.page-guide-frictions .guide-tools .guide-iconbtn:first-child { margin-right: clamp(16px, 4vw, 53px); }
+.page-guide-frictions .guide-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 41px; border-radius: 14px; background: var(--topic); transition: filter .15s, transform .15s; }
+.page-guide-frictions a.guide-iconbtn:hover { filter: brightness(.92); transform: translateY(-1px); }
+.page-guide-frictions .guide-iconbtn img { width: 27px; height: auto; }
+.page-guide-frictions .guide-iconbtn img.guide-iconbtn__list { width: 35px; height: 35px; }
+.page-guide-frictions .guide-iconbtn.is-disabled { opacity: .4; }
+.page-guide-frictions .flip { transform: scaleX(-1); }
+.page-guide-frictions .guide-layout { display: grid; grid-template-columns: 1fr; gap: 40px; padding-top: 40px; padding-bottom: clamp(64px, 8vw, 140px); }
+@media (min-width: 960px) { .page-guide-frictions .guide-layout { grid-template-columns: 255px minmax(0, 745px); justify-content: center; column-gap: clamp(40px, 6vw, 82px); padding-top: 64px; } }
+.page-guide-frictions .guide-aside { display: flex; flex-direction: column; align-items: flex-start; gap: 40px; }
+@media (min-width: 960px) { .page-guide-frictions .guide-aside { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; gap: 70px; } }
+.page-guide-frictions .guide-toc { width: 100%; max-width: 255px; display: flex; flex-direction: column; gap: 22px; }
+.page-guide-frictions .guide-toc__title { background: var(--topic); color: #fff; border-radius: 22px; padding: 7px 20px; font-size: 20px; font-weight: 700; line-height: 23px; }
+.page-guide-frictions .guide-toc ul { list-style: none; margin: 0; padding: 0 15px 0 20px; display: flex; flex-direction: column; gap: 15px; }
+.page-guide-frictions .guide-toc a { font-size: 18px; font-weight: 700; text-decoration: none; }
+.page-guide-frictions .guide-toc a:hover { text-decoration: underline; text-decoration-color: var(--topic); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.page-guide-frictions .guide-back { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 37px; border: 3px solid var(--topic); border-radius: 22px; font-size: 20px; font-weight: 700; text-decoration: none; color: #000; transition: background .15s; }
+.page-guide-frictions .guide-back:hover { background: var(--topic); color: #fff; }
+.page-guide-frictions .guide-aside__art { width: 100%; max-width: 286px; height: auto; align-self: center; }
+@media (min-width: 960px) { .page-guide-frictions .guide-aside__art { align-self: flex-end; } }
+.page-guide-frictions .guide-article { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 110px); min-width: 0; }
+.page-guide-frictions .guide-section { display: flex; flex-direction: column; gap: 20px; }
+.page-guide-frictions .guide-section > h2 { font-size: clamp(26px, 2.6vw, 32px); font-weight: 700; line-height: 1.2; scroll-margin-top: calc(var(--header-h) + 24px); }
+.page-guide-frictions .guide-section p, .page-guide-frictions .guide-section li { font-size: clamp(18px, 1.6vw, 20px); line-height: 1.2; }
+.page-guide-frictions .guide-question { font-weight: 600; font-style: italic; }
+.page-guide-frictions .guide-bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; max-width: 652px; }
+.page-guide-frictions .guide-bullets li { position: relative; padding-left: 1em; }
+.page-guide-frictions .guide-bullets li::before { content: "•"; position: absolute; left: 0; }
+.page-guide-frictions .guide-bullets strong { font-weight: 600; }
+.page-guide-frictions .guide-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; max-width: 652px; }
+.page-guide-frictions .guide-steps h3 { font-size: clamp(21px, 2vw, 24px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+.page-guide-frictions .guide-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.page-guide-frictions .guide-checklist label { display: grid; grid-template-columns: 25px 1fr; gap: clamp(18px, 3vw, 42px); align-items: center; cursor: pointer; }
+.page-guide-frictions .guide-checklist input { appearance: none; -webkit-appearance: none; width: 25px; height: 25px; margin: 0; border: 3px solid var(--topic); border-radius: 0; background: #fff center / 17px no-repeat; cursor: pointer; transition: background-color .15s; }
+.page-guide-frictions .guide-checklist input:checked { background-color: var(--topic); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'%3E%3Cpath d='M21.35 1.46 9.9 16.57 3.13 9.8 0 12.92l10.42 10.42L25 4.59z' fill='%23fff'/%3E%3C/svg%3E"); }
+.page-guide-frictions .guide-checklist input:focus-visible { outline: 3px solid #000; outline-offset: 2px; }
+.page-guide-frictions .guide-check__text { font-size: clamp(18px, 1.6vw, 20px); line-height: 1.2; }
+.page-guide-frictions .guide-check__note { font-size: 16px; }
+.page-guide-frictions .guide-checklist input:checked + .guide-check__text { color: rgba(0, 0, 0, .55); }
+.page-guide-frictions .guide-dos { display: flex; flex-direction: column; gap: 30px; max-width: 597px; }
+.page-guide-frictions .guide-dos h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+.page-guide-frictions .guide-dos ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.page-guide-frictions .guide-dos li { display: grid; grid-template-columns: 25px 1fr; gap: clamp(18px, 3vw, 42px); align-items: center; }
+.page-guide-frictions .guide-dos li span { max-width: 525px; }
+.page-guide-frictions .guide-pager { display: flex; flex-wrap: wrap; gap: 20px 50px; }
+.page-guide-frictions .guide-pager .guide-btn--next { margin-left: auto; }
+.page-guide-frictions .guide-btn { display: inline-flex; align-items: center; justify-content: center; gap: 20px; width: 205px; max-width: 100%; height: 52px; padding: 0 25px; border-radius: 35px; background: var(--topic); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: filter .15s, transform .15s; }
+.page-guide-frictions .guide-btn:hover { filter: brightness(.92); transform: translateY(-1px); }
+.page-guide-frictions .guide-btn img { width: 31px; height: auto; flex: none; }
+.page-guide-frictions .guide-btn img.guide-btn__back { width: 26px; height: 21px; }
+.page-guide-frictions .guide-btn--back, .page-guide-frictions .guide-btn--next { gap: 30px; }
+@media (max-width: 700px) { .page-guide-frictions .guide-pager { flex-direction: column; align-items: stretch; } .page-guide-frictions .guide-pager .guide-btn { width: 100%; } .page-guide-frictions .guide-pager .guide-btn--next { margin-left: 0; } }
+</style>
+
+<section class="guide-hero">
+  <div class="container"><h1>Guide 3: Preventing Internal Friction</h1></div>
+</section>
+
+<div class="container guide-bar">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <span>Resources</span> <span aria-hidden="true">//</span> <a href="#guide">Step by Step Guides</a> <span aria-hidden="true">//</span> <span aria-current="page">Preventing Internal Friction</span>
+  </nav>
+  <div class="guide-tools">
+    <a class="guide-iconbtn" href="#guide" aria-label="Back to the list of guides" title="Back to list"><img class="guide-iconbtn__list" src="assets/img/guide-frictions/list.svg" alt="" width="35" height="35"></a>
+    <a class="guide-iconbtn" href="#guide-structure" aria-label="Previous guide" title="Previous guide"><img class="flip" src="assets/img/guide-frictions/arrow.svg" alt="" width="33" height="22"></a>
+    <a class="guide-iconbtn" href="#guide-balance" aria-label="Next guide" title="Next guide"><img src="assets/img/guide-frictions/arrow.svg" alt="" width="33" height="22"></a>
+  </div>
+</div>
+
+<div class="container guide-layout">
+  <aside class="guide-aside">
+    <nav class="guide-toc" aria-label="Sections">
+      <p class="guide-toc__title">Sections</p>
+      <ul>
+        <li><a href="#guide-frictions" data-scroll="frictions-challenge">The Challenge</a></li>
+        <li><a href="#guide-frictions" data-scroll="frictions-experience">What (Not) To Do</a></li>
+        <li><a href="#guide-frictions" data-scroll="frictions-steps">Step-By-Step Plan</a></li>
+        <li><a href="#guide-frictions" data-scroll="frictions-checklist">Checklist</a></li>
+        <li><a href="#guide-frictions" data-scroll="frictions-dos">Do’s And Don’t’s</a></li>
+      </ul>
+      <a class="guide-back" href="#guide">Back to guide</a>
+    </nav>
+    <img class="guide-aside__art" src="assets/img/guide-frictions/illustration.png" alt="Illustration of two women talking with each other" width="1024" height="888" loading="lazy">
+  </aside>
+
+  <article class="guide-article">
+    <section class="guide-section" aria-labelledby="frictions-challenge">
+      <h2 id="frictions-challenge">The Challenge</h2>
+      <p>It’s almost unavoidable: within your organization, different groups form. Sometimes that goes well, but sometimes tensions and conflicts arise.</p>
+      <p class="guide-question">How do you make sure everyone feels welcome?</p>
+    </section>
+
+    <section class="guide-section" aria-labelledby="frictions-experience">
+      <h2 id="frictions-experience">From Experience: What (Not) To Do</h2>
+      <p>During the meeting, participants shared various experiences and insights:</p>
+      <ul class="guide-bullets">
+        <li>The formation of different groups within your organization can happen in various ways. Tensions often arise when one group is overrepresented.</li>
+        <li>Clear communication and enforcement of rules can contribute to a stronger sense of community.</li>
+        <li>Establishing rules together can foster a greater sense of responsibility and respect within the group.</li>
+        <li>Organizing activities at different levels (e.g., based on language skills) can promote inclusion and ensure that everyone feels accepted.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section" aria-labelledby="frictions-steps">
+      <h2 id="frictions-steps">Step-By-Step Plan</h2>
+      <ol class="guide-steps">
+        <li><h3>Step 1: Analyze the challenges</h3><p>Carefully assess the diversity and needs of the participants.</p></li>
+        <li><h3>Step 2: Develop rules and agreements</h3><p>Develop joint rules and agreements: in consultation with the participants, so that there is support for them.</p></li>
+        <li><h3>Step 3: Build relationships</h3><p>Make time for relationship building with everyone involved. If you stay in touch with each other, it will be easier to talk about challenges.</p></li>
+        <li><h3>Step 4: Diversity</h3><p>Take the diversity within the group into account: for example, by offering certain activities in multiple sessions for different groups.</p></li>
+        <li><h3>Step 5: Communication</h3><p>Discuss with each other how you prefer to deal with conflict and how you like to communicate. Yes/no to using WhatsApp? Yes/no to email? Yes/no to group discussions?</p></li>
+        <li><h3>Step 6: Evaluate regularly</h3><p>Evaluate regularly with participants. Make adjustments based on feedback.</p></li>
+        <li><h3>Step 7: Mediation</h3><p>If you cannot resolve the issue together, bring in a neutral person who can mediate.</p></li>
+      </ol>
+    </section>
+
+    <section class="guide-section" aria-labelledby="frictions-checklist">
+      <h2 id="frictions-checklist">Checklist</h2>
+      <ul class="guide-checklist">
+        <li><label><input type="checkbox"><span class="guide-check__text">How large is your organization/group? <span class="guide-check__note">Make a distinction between active volunteers and visitors of your meetings/activities.</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">To what extent is there diversity within your organization?<br><span class="guide-check__note">Consider factors such as different ethnic, religious, or cultural backgrounds, different generations, different migration reasons, varying language skills, and different education levels, etc.</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Als er spanningen of conflicten ontstaan: waar hebben die dan vaak mee te maken? <span class="guide-check__note">Waardoor worden ze volgens jou/jullie veroorzaakt? Hoe gaan jullie daarmee om? Hoe proberen jullie dat op te lossen?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">If tensions or conflicts arise: what are they often related to?<br><span class="guide-check__note">What do you think causes them? How do you deal with them? How do you try to resolve them?</span></span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">How do you communicate with each other? Do you have a clear point of contact within the organization where people can go if they have a conflict?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">How do you ensure that the different groups within your organization feel seen and heard?</span></label></li>
+        <li><label><input type="checkbox"><span class="guide-check__text">Are there external parties or individuals who can support you in finding solutions?</span></label></li>
+      </ul>
+    </section>
+
+    <section class="guide-section" aria-labelledby="frictions-dos">
+      <h2 id="frictions-dos">Do’s And Don’t’s</h2>
+      <div class="guide-dos">
+        <div>
+          <h3>DO</h3>
+          <ul>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Zorg voor een duidelijke structuur en organisatie binnen de groep.</span></li>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Werk met een gedeelde visie en maak deze zichtbaar.</span></li>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Geef deelnemers de kans om samen regels op te stellen om meer betrokkenheid te creëren.</span></li>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Bouw geleidelijk de groepssamenhang op, door verschillende groepen rustig aan elkaar te laten wennen.</span></li>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Zorg ervoor dat er altijd een persoon is die de regels handhaaft.</span></li>
+            <li><img src="assets/img/guide-frictions/tick.svg" alt="Do" width="25" height="25" loading="lazy"><span>Zorg ervoor dat communicatie en thema’s aansluiten bij de leefwereld van de deelnemers.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>DON’T</h3>
+          <ul>
+            <li><img src="assets/img/guide-frictions/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Voorkom afhankelijkheid van één persoon; probeer de organisatie te verdelen.</span></li>
+            <li><img src="assets/img/guide-frictions/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Vermijd het opleggen van regels zonder inspraak van deelnemers.</span></li>
+            <li><img src="assets/img/guide-frictions/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Organiseer geen te grote, ongestructureerde bijeenkomsten, omdat die sneller kunnen leiden tot conflicten.</span></li>
+            <li><img src="assets/img/guide-frictions/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Vermijd te veel focus op een specifieke groep om inclusie te waarborgen.</span></li>
+            <li><img src="assets/img/guide-frictions/cross.svg" alt="Don’t" width="25" height="25" loading="lazy"><span>Laat groepsdynamiek niet volledig vrij; structuur en leiding zijn belangrijk voor succes.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <nav class="guide-pager" aria-label="Guide navigation">
+      <a class="guide-btn guide-btn--back" href="#guide"><img class="guide-btn__back" src="assets/img/guide-frictions/back-to-list.svg" alt="" width="26" height="21" loading="lazy">Back To List</a>
+      <a class="guide-btn guide-btn--prev" href="#guide-structure"><img class="flip" src="assets/img/guide-frictions/arrow.svg" alt="" width="33" height="22" loading="lazy">Previous Guide</a>
+      <a class="guide-btn guide-btn--next" href="#guide-balance">Next Guide<img src="assets/img/guide-frictions/arrow.svg" alt="" width="33" height="22" loading="lazy"></a>
+    </nav>
+  </article>
+</div>

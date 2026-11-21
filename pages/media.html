@@ -1,0 +1,51 @@
+<!-- title: Photos and Media -->
+<style>
+  .page-media h1 { font-size: clamp(28px, 3vw, 36px); font-weight: 700; text-transform: uppercase; text-align: center; padding-block: 25px 11px; }
+  .page-media .gallery { padding-block: clamp(24px, 4vw, 49px) clamp(48px, 7vw, 90px); }
+  .page-media .gallery__row { display: grid; grid-template-columns: 1fr; gap: 25px; }
+  .page-media .gallery__row + .gallery__row { margin-top: 25px; }
+  .page-media .gallery__col { display: flex; flex-direction: column; gap: 25px; }
+  .page-media .gallery .photo { height: auto; cursor: zoom-in; transition: transform .15s, box-shadow .15s; }
+  .page-media .gallery .photo:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); }
+  @media (min-width: 720px) {
+    .page-media .gallery__row { grid-template-columns: 367.5fr 409fr 314fr; }
+    .page-media .gallery__row--1 { align-items: end; padding-block: 0; }
+    .page-media .gallery__row--2 { align-items: start; }
+  }
+</style>
+
+<div class="container">
+  <h1>Media</h1>
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="#organizations">Organizations</a> // <span aria-current="page"><b>Photos and Media</b></span></nav>
+
+  <section class="gallery" aria-label="Photo gallery">
+    <div class="gallery__row gallery__row--1">
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-01.jpg" alt="Women talking around a table with a red tablecloth in a bright meeting room" width="1600" height="1200" data-lightbox style="aspect-ratio:367.5/275.6">
+        <img class="photo" src="assets/img/media/photo-02.jpg" alt="Women sitting on exercise mats in a circle on the floor during a workshop" width="1600" height="1200" loading="lazy" data-lightbox style="aspect-ratio:367.5/275.6">
+      </div>
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-03.jpg" alt="Smiling woman holding up a card at a table with a red patterned tablecloth" width="1500" height="2000" loading="lazy" data-lightbox style="aspect-ratio:408.9/545.2">
+      </div>
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-04.jpg" alt="Two women standing together next to a doorway" width="1200" height="1600" loading="lazy" data-lightbox style="aspect-ratio:314/499">
+      </div>
+    </div>
+    <div class="gallery__row gallery__row--2">
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-05.jpg" alt="Woman concentrating on painting with a brush over a tray of paint" width="3024" height="4032" loading="lazy" data-lightbox style="aspect-ratio:366/499">
+        <img class="photo" src="assets/img/media/photo-06.jpg" alt="Group doing a yoga class in a community hall" width="2048" height="2048" loading="lazy" data-lightbox style="aspect-ratio:366/275">
+      </div>
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-07.jpg" alt="Large community hall filled with people seated at tables" width="1600" height="1200" loading="lazy" data-lightbox style="aspect-ratio:409.2/306.9">
+        <img class="photo" src="assets/img/media/photo-08.jpg" alt="Group of women posing together in a community hall" width="2040" height="1530" loading="lazy" data-lightbox style="aspect-ratio:409.2/306.9">
+        <img class="photo" src="assets/img/media/photo-09.jpg" alt="Women seated at tables listening to a presentation" width="1200" height="1600" loading="lazy" data-lightbox style="aspect-ratio:409.2/306.9;object-position:50% 74%">
+      </div>
+      <div class="gallery__col">
+        <img class="photo" src="assets/img/media/photo-10.jpg" alt="Women sharing a meal at long tables" width="1536" height="2048" loading="lazy" data-lightbox style="aspect-ratio:314/215">
+        <img class="photo" src="assets/img/media/photo-11.jpg" alt="Two women having their faces painted with butterfly designs" width="1502" height="2048" loading="lazy" data-lightbox style="aspect-ratio:314.3/428.6">
+        <img class="photo" src="assets/img/media/photo-12.jpg" alt="Woman painting a colourful butterfly picture" width="3024" height="4032" loading="lazy" data-lightbox style="aspect-ratio:314.3/428.6">
+      </div>
+    </div>
+  </section>
+</div>
