@@ -328,6 +328,29 @@
       if (form && !form.hasAttribute("data-form")) form.addEventListener("submit", function (e) { e.preventDefault(); });
     });
 
+    // checkbox filters: OR inside a group (checkbox name), AND across groups
+    $$("[data-check-filter]", root).forEach(function (wrap) {
+      var name = wrap.dataset.checkFilter;
+      function apply() {
+        var sel = {};
+        $$('input[type="checkbox"]:checked', wrap).forEach(function (c) { (sel[c.name] = sel[c.name] || []).push(c.value); });
+        var shown = 0;
+        $$('[data-filter-item="' + name + '"]', root).forEach(function (item) {
+          var ok = Object.keys(sel).every(function (g) {
+            var have = (item.getAttribute("data-" + g) || "").split(/\s+/);
+            return sel[g].some(function (v) { return have.indexOf(v) > -1; });
+          });
+          item.dataset.out = ok ? "0" : "1"; item.hidden = !ok; if (ok) shown++;
+        });
+        $$('[data-empty="' + name + '"]', root).forEach(function (el) { el.hidden = shown > 0; });
+        $$("[data-paginate]", root).forEach(function (list) { if (list._repage) list._repage(); });
+      }
+      wrap.addEventListener("change", apply);
+      $$('[data-check-clear="' + name + '"]', root).forEach(function (b) {
+        b.addEventListener("click", function () { $$('input[type="checkbox"]', wrap).forEach(function (c) { c.checked = false; }); apply(); });
+      });
+    });
+
     // tabs
     $$("[data-tabs]", root).forEach(function (wrap) {
       var tabs = $$("[data-tab]", wrap);
@@ -446,7 +469,7 @@
     return '<p class="eyebrow" style="color:' + "#b0174f" + '">' + esc(ev.category || "Event") + '</p>' +
       '<h2 class="h-sub" style="margin:6px 0 14px">' + esc(ev.title) + '</h2>' +
       '<dl class="stack" style="--gap:8px;margin:0">' +
-        '<div><dt class="small muted">Date</dt><dd style="margin:0">' + longDate(ev.date) + (ev.time ? ", " + esc(ev.time) : "") + '</dd></div>' +
+        '<div><dt class="small muted">Date</dt><dd style="margin:0">' + longDate(ev.date) + (ev.time ? ", " + esc(ev.time) : "") + (ev.recurring ? " (every week)" : "") + '</dd></div>' +
         '<div><dt class="small muted">Organization</dt><dd style="margin:0">' + esc(o.name) + '</dd></div>' +
         (ev.location ? '<div><dt class="small muted">Location</dt><dd style="margin:0">' + esc(ev.location) + '</dd></div>' : "") +
       '</dl>' +
@@ -459,8 +482,26 @@
     });
   }
 
+  function expandEvents() {
+    var out = [];
+    var now = new Date();
+    (window.KV_EVENTS || []).forEach(function (e) {
+      if (typeof e.weekly !== "number") { out.push(e); return; }
+      // weekly: 0 = Monday ... 6 = Sunday; generate from 3 months back to 9 months ahead
+      var d = new Date(now.getFullYear(), now.getMonth() - 3, 1);
+      var end = new Date(now.getFullYear(), now.getMonth() + 9, 0);
+      while ((d.getDay() + 6) % 7 !== e.weekly) d.setDate(d.getDate() + 1);
+      for (; d <= end; d.setDate(d.getDate() + 7)) {
+        var copy = {}; for (var k in e) copy[k] = e[k];
+        copy.date = iso(d); delete copy.weekly; copy.recurring = true;
+        out.push(copy);
+      }
+    });
+    return out;
+  }
+
   function mountCalendar(el) {
-    var events = (window.KV_EVENTS || []).slice().sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+    var events = expandEvents().sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
     var start = window.KV_CALENDAR_START ? parse(window.KV_CALENDAR_START + "-01") : new Date();
     var st = { y: start.getFullYear(), m: start.getMonth(), view: "month", sel: null, org: "", cat: "" };
     var orgs = window.KV_ORGS || {};
@@ -603,7 +644,8 @@
   function mountUpcoming(el) {
     var limit = parseInt(el.dataset.limit, 10) || 3;
     var org = el.dataset.org;
-    var events = (window.KV_EVENTS || []).filter(function (e) { return !org || e.org === org; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; }).slice(0, limit);
+    var today0 = iso(new Date());
+    var events = expandEvents().filter(function (e) { return (!org || e.org === org) && e.date >= today0; }).sort(function (a, b) { return a.date < b.date ? -1 : 1; }).slice(0, limit);
     el.innerHTML = '<div class="grid" style="--min:240px">' + events.map(function (e, i) {
       return '<button type="button" class="cal__event" data-ev="' + i + '">' + badge(e) + "<span><b>" + esc(e.title) + "</b><span>" + longDate(e.date) + " · " + esc(orgOf(e).name) + "</span></span></button>";
     }).join("") + "</div>";

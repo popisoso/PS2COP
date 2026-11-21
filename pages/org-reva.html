@@ -1,4 +1,4 @@
-<!-- title: VrouwenBuurtLab Laak -->
+<!-- title: St. Reva Moeders -->
 <style>
 .page-org-reva { --org-cream: #fffbf7; --org-rule: #783230; --org-field: rgba(164, 69, 108, 0.1); }
 .page-org-reva .breadcrumb { color: #000; font-size: 15px; padding-block: 65px 30px; gap: 10px; }
@@ -6,13 +6,13 @@
 .page-org-reva .breadcrumb span[aria-current] { font-weight: 700; }
 .page-org-reva .org-title { font-size: clamp(32px, 3.4vw, 43px); font-weight: 700; line-height: 1.2; }
 .page-org-reva .org-hero { padding-bottom: clamp(48px, 6vw, 86px); --gap: clamp(32px, 8vw, 110px); }
-@media (min-width: 900px) { .page-org-reva .org-hero { grid-template-columns: minmax(0, 527px) minmax(0, 500px); justify-content: space-between; } }
+@media (min-width: 900px) { .page-org-reva .org-hero { grid-template-columns: minmax(0, 527px) minmax(0, 469px); justify-content: space-between; } }
 .page-org-reva .org-hero__text { display: flex; flex-direction: column; gap: 24px; }
 .page-org-reva .org-hero__text .org-title { max-width: 390px; padding-left: 4px; }
 .page-org-reva .org-hero__lead { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.2; margin-top: 8px; }
 .page-org-reva .org-rule { width: 100px; height: 3px; background: var(--pink); border: 0; margin: 0; }
 .page-org-reva .org-hero__body { font-size: 18px; line-height: 1.2; max-width: 514px; }
-.page-org-reva .org-hero__img { width: 100%; aspect-ratio: 1; object-fit: cover; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03); }
+.page-org-reva .org-hero__img { width: 100%; aspect-ratio: 469 / 500; object-fit: cover; object-position: 38% center; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03); }
 
 .page-org-reva .org-events { padding-block: clamp(48px, 5vw, 61px) clamp(48px, 5vw, 74px); }
 .page-org-reva .org-events__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: clamp(32px, 4vw, 61px); }
@@ -23,7 +23,7 @@
 @media (min-width: 960px) { .page-org-reva .org-events__grid { grid-template-columns: repeat(3, 1fr); } }
 .page-org-reva .event-card { height: 100%; display: flex; flex-direction: column; background: var(--org-cream); border-radius: 10px; overflow: hidden; }
 .page-org-reva .event-card__media { position: relative; height: 262px; }
-.page-org-reva .event-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.page-org-reva .event-card__media > img { width: 100%; height: 100%; object-fit: cover; }
 .page-org-reva .event-card__media::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 -125px 85px -50px rgba(0, 0, 0, 0.5); pointer-events: none; }
 .page-org-reva .event-card__title { position: absolute; z-index: 1; left: 21px; right: 21px; bottom: 21px; display: flex; align-items: center; gap: 12px; color: var(--org-cream); font-size: 22px; font-weight: 700; line-height: 1.2; }
 .page-org-reva .event-card__new { width: 38px; height: 38px; transform: rotate(30deg); flex: none; }
@@ -40,7 +40,7 @@
 .page-org-reva .carousel-ctrl__arrow--prev img { transform: rotate(180deg); }
 .page-org-reva .carousel-ctrl__dot { width: 20px; height: 20px; }
 
-.page-org-reva .org-media { padding-block: clamp(56px, 10vw, 150px) clamp(48px, 7vw, 110px); }
+.page-org-reva .org-media { padding-block: clamp(56px, 8vw, 110px) clamp(48px, 7vw, 110px); }
 .page-org-reva .org-section-head { padding-bottom: 19px; border-bottom: 3px solid var(--org-rule); margin-bottom: 39px; }
 .page-org-reva .org-gallery { display: grid; gap: 12px; grid-template-columns: 1fr; }
 .page-org-reva .org-gallery figure { margin: 0; overflow: hidden; }
@@ -105,17 +105,17 @@
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="#organizations">Organizations</a> <span aria-hidden="true">//</span>
     <a href="#organizations">All Organizations</a> <span aria-hidden="true">//</span>
-    <span aria-current="page">VrouwenBuurtLab Laak</span>
+    <span aria-current="page">ReVa Moeders</span>
   </nav>
 
   <section class="split org-hero" aria-labelledby="org-title">
     <div class="org-hero__text">
-      <h1 class="org-title" id="org-title">VrouwenBuurtLab Laak</h1>
+      <h1 class="org-title" id="org-title">St. Reva Moeders</h1>
       <p class="org-hero__lead">De plek om elkaar te ontmoeten, te ontdekken en jezelf te ontwikkelen</p>
       <hr class="org-rule">
       <p class="org-hero__body">Een ontmoetingscentrum voor vrouwen, het VrouwenBuurtLab. Niet de problemen van de vrouwen staan centraal, maar hun mogelijkheden, kwaliteiten en talenten. Via verschillende soorten activiteiten en cursussen worden de vrouwen stap voor stap begeleid naar bijvoorbeeld een opleiding of een baan. Het nieuwe ontmoetingscentrum is bedacht en georganiseerd door de vrouwen zelf en wordt door ons ondersteund.</p>
     </div>
-    <img class="org-hero__img" src="assets/img/org-reva/logo.png" alt="VrouwenBuurtLab Laak bij Noortje logo" width="417" height="417">
+    <img class="org-hero__img" src="assets/img/org-reva/hero.png" alt="Group photo of the women of St. Reva Moeders holding a donation cheque outside their building" width="1530" height="862">
   </section>
 </div>
 
@@ -129,13 +129,13 @@
       <li id="reva-event-1">
         <article class="event-card">
           <div class="event-card__media">
-            <img src="assets/img/org-reva/event-turns-pink.png" alt="Pink breast cancer awareness ribbon" width="720" height="360" loading="lazy">
-            <h3 class="event-card__title">Turns Pink <img class="event-card__new" src="assets/img/org-reva/burst-new.svg" alt="New" width="38" height="38"></h3>
+            <img src="assets/img/org-reva/event-youth-workshop.png" alt="Girls and women sitting together on the floor working on a sewing project" width="770" height="578" loading="lazy">
+            <h3 class="event-card__title">Youth Future Skills Workshop <img class="event-card__new" src="assets/img/org-reva/burst-new.svg" alt="New" width="38" height="38"></h3>
           </div>
           <div class="event-card__body">
-            <p class="event-card__desc">We come together for breast cancer month. We’ll share our knowledge and experiences on the topic. We’d like to be there for everyone and whoever is ...</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Mon, 13 October 2025</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Van Meursstraat 1</p>
+            <p class="event-card__desc">ocus: Teens learning about study options, soft skills, and mental well-being<br>Activities: Mini-lectures, group discussions, creative exercises</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Mon, 19 October 2025</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Televisiestraat 4</p>
             <a class="btn" href="#events">Read More</a>
           </div>
         </article>
@@ -148,8 +148,8 @@
           </div>
           <div class="event-card__body">
             <p class="event-card__desc">With Sadaf, you’ll learn how to paint step-by-step. You don’t need experience, together we’ll see how creative and fun painting can be.</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Every Monday</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Van Meursstraat 1</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Every Thursday</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Televisiestraat 4</p>
             <a class="btn" href="#events">Read More</a>
           </div>
         </article>
@@ -157,13 +157,13 @@
       <li id="reva-event-3">
         <article class="event-card">
           <div class="event-card__media">
-            <img src="assets/img/org-reva/event-communal-yoga.jpg" alt="Women doing a yoga class together in a community room" width="2048" height="2048" loading="lazy">
-            <h3 class="event-card__title">Communal Yoga</h3>
+            <img src="assets/img/org-reva/event-communal-meal.png" alt="A table full of shared dishes for a communal meal" width="682" height="1023" loading="lazy">
+            <h3 class="event-card__title">Communal Meal</h3>
           </div>
           <div class="event-card__body">
             <p class="event-card__desc">Come and have a meal together with the women from Wijk!</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Mon, 29 September 2025</p>
-            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Van Meursstraat 1</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-calendar.svg" alt="Date" width="20" height="20"> Mon, 29 October 2025</p>
+            <p class="event-card__meta"><img src="assets/img/org-reva/icon-location.svg" alt="Location" width="20" height="20"> Televisiestraat 4</p>
             <a class="btn" href="#events">Read More</a>
           </div>
         </article>
@@ -208,8 +208,8 @@
             <span class="comment__quote"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"></span>
             <img src="assets/img/org-reva/icon-message.svg" alt="" width="36" height="36">
           </div>
-          <blockquote>The community is so nice ❤️</blockquote>
-          <figcaption>Jasmine</figcaption>
+          <blockquote>Working with Stichting Joury gave me the push I needed. The team speaks my language, literally and emotionally.</blockquote>
+          <figcaption>Nickole</figcaption>
         </figure>
       </li>
       <li>
@@ -218,8 +218,8 @@
             <span class="comment__quote"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"></span>
             <img src="assets/img/org-reva/icon-message.svg" alt="" width="36" height="36">
           </div>
-          <blockquote>I’ve been joining their events recently and they were amazing! What and when will the next one be?</blockquote>
-          <figcaption>Maria</figcaption>
+          <blockquote>The youth workshops helped me figure out what I want to study and I met other girls with the same struggles.</blockquote>
+          <figcaption>Sara</figcaption>
         </figure>
       </li>
       <li>
@@ -228,8 +228,8 @@
             <span class="comment__quote"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"><img src="assets/img/org-reva/icon-quote.svg" alt="" width="36" height="36"></span>
             <img src="assets/img/org-reva/icon-message.svg" alt="" width="36" height="36">
           </div>
-          <blockquote>I love the monthly events!</blockquote>
-          <figcaption>Kamila</figcaption>
+          <blockquote>As a volunteer I can use my own experience as a newcomer to support other women. The organization is warm, professional and very organized.</blockquote>
+          <figcaption>Lina</figcaption>
         </figure>
       </li>
     </ul>
@@ -255,8 +255,8 @@
         <label for="reva-org">Select organization</label>
         <div class="select">
           <select id="reva-org" name="organization" required>
-            <option selected>VrouwenBuurtLab Laak</option>
-            <option>ReVa Moeders</option>
+            <option>VrouwenBuurtLab Laak</option>
+            <option selected>ReVa Moeders</option>
           </select>
           <img src="assets/img/org-reva/icon-select-dash.svg" alt="" width="19" height="2">
         </div>
@@ -278,9 +278,9 @@
         <textarea class="textarea" id="reva-note" name="note" placeholder="Type here..." required></textarea>
       </div>
       <button class="btn" type="submit">Send</button>
-      <p class="form-note" data-form-success hidden>Thank you! Your message has been sent to VrouwenBuurtLab Laak.</p>
+      <p class="form-note" data-form-success hidden>Thank you! Your message has been sent to ReVa Moeders.</p>
     </form>
-    <img class="org-map" src="assets/img/org-reva/map.png" alt="Map showing the location of VrouwenBuurtLab Laak near Betsy Perkstraat in Den Haag" width="944" height="546" loading="lazy">
+    <img class="org-map" src="assets/img/org-reva/map.png" alt="Map showing the location of ReVa Moeders at Televisiestraat 4 in Den Haag" width="2310" height="1290" loading="lazy">
   </div>
   <ul class="grid-4 org-info">
     <li>

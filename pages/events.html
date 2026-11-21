@@ -64,7 +64,7 @@
   <div class="ev-layout">
     <aside class="ev-filter" aria-labelledby="ev-filter-title">
       <h2 id="ev-filter-title">Filter</h2>
-      <div class="ev-filter__groups">
+      <div class="ev-filter__groups" data-check-filter="events">
         <details class="ev-fbox" open>
           <summary>Locations <img src="assets/img/events/chevron.svg" alt="" width="12" height="24" loading="lazy"></summary>
           <ul>
@@ -116,12 +116,14 @@
           <a class="ev-more" href="#organizations">See more</a>
         </details>
       </div>
+      <button type="button" class="btn btn--outline btn--sm" data-check-clear="events" style="margin-top:16px">Clear filters</button>
     </aside>
 
     <section class="min0" aria-labelledby="ev-list-title">
       <h2 id="ev-list-title" class="sr-only">Events</h2>
+      <p class="form-note" data-empty="events" hidden>No events match these filters. Clear a filter to see more.</p>
       <div class="ev-grid" data-paginate="6">
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="advice culture" data-demographic="adults seniors">
           <span class="ev-new"><img src="assets/img/events/new-badge.svg" alt="New" width="40" height="40" loading="lazy"></span>
           <div class="ev-card__media"><img src="assets/img/events/turns-pink.png" alt="Pink breast cancer awareness ribbon" width="720" height="360" loading="lazy" style="object-position: 0% 50%"></div>
           <h3>Turns Pink</h3>
@@ -135,7 +137,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities courses culture" data-demographic="adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/painting-club.png" alt="Easels with blank canvases set up for a painting class" width="800" height="1200" loading="lazy" style="object-position: 50% 58%"></div>
           <h3>Painting Club</h3>
           <div class="ev-card__body">
@@ -148,7 +150,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities culture" data-demographic="children youth adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/communal-meal.png" alt="A table full of shared dishes for a communal meal" width="682" height="1023" loading="lazy"></div>
           <h3>Communal Meal</h3>
           <div class="ev-card__body">
@@ -161,7 +163,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities courses" data-demographic="adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/crochet-knitting.png" alt="Hands crocheting pink yarn" width="894" height="894" loading="lazy" style="object-position: 50% 56%"></div>
           <h3>Crochet &amp; Knitting</h3>
           <div class="ev-card__body">
@@ -174,7 +176,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities" data-demographic="youth adults">
           <div class="ev-card__media"><img src="assets/img/events/zumba.jpg" alt="A group of women dancing at a zumba class" width="1200" height="800" loading="lazy" style="object-position: 50% 76%"></div>
           <h3>Zumba</h3>
           <div class="ev-card__body">
@@ -187,7 +189,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="courses education" data-demographic="adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/sewing.png" alt="A sewing machine with fabric and a measuring tape" width="928" height="704" loading="lazy" style="object-position: 50% 100%"></div>
           <h3>Sewing</h3>
           <div class="ev-card__body">
@@ -200,7 +202,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="advice culture" data-demographic="adults seniors">
           <span class="ev-new"><img src="assets/img/events/new-badge.svg" alt="New" width="40" height="40" loading="lazy"></span>
           <div class="ev-card__media"><img src="assets/img/events/turns-pink.png" alt="Pink breast cancer awareness ribbon" width="720" height="360" loading="lazy" style="object-position: 0% 50%"></div>
           <h3>Turns Pink</h3>
@@ -214,7 +216,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities courses culture" data-demographic="adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/painting-club.png" alt="Easels with blank canvases set up for a painting class" width="800" height="1200" loading="lazy" style="object-position: 50% 58%"></div>
           <h3>Painting Club</h3>
           <div class="ev-card__body">
@@ -227,7 +229,7 @@
           </div>
         </article>
 
-        <article class="ev-card">
+        <article class="ev-card" data-filter-item="events" data-location="laak" data-category="activities culture" data-demographic="children youth adults seniors">
           <div class="ev-card__media"><img src="assets/img/events/communal-meal.png" alt="A table full of shared dishes for a communal meal" width="682" height="1023" loading="lazy"></div>
           <h3>Communal Meal</h3>
           <div class="ev-card__body">
